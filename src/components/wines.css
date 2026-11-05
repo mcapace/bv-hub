@@ -1,0 +1,120 @@
+.wines {
+  background:
+    radial-gradient(60% 40% at 50% 60%, rgba(103, 0, 13, 0.5), transparent 70%),
+    var(--bv-night);
+  padding-bottom: clamp(60px, 8vw, 120px);
+  overflow: hidden;
+}
+
+.wines__head {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: end;
+}
+.wines__head .display {
+  margin-top: 16px;
+}
+.wines__head em {
+  font-style: italic;
+  color: var(--bv-gold-light);
+}
+
+.wines__stage {
+  position: relative;
+  height: clamp(420px, 60vh, 620px);
+  margin-top: 20px;
+}
+.wines__floorglow {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  width: 70%;
+  height: 120px;
+  transform: translateX(-50%);
+  background: radial-gradient(50% 50% at 50% 50%, rgba(188, 153, 93, 0.22), transparent 70%);
+  pointer-events: none;
+  filter: blur(10px);
+}
+
+.wines__panel {
+  display: grid;
+  gap: 22px;
+  margin-top: -20px;
+  position: relative;
+  z-index: 2;
+}
+
+.wines__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.wines__tab {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(248, 249, 245, 0.16);
+  color: rgba(248, 249, 245, 0.7);
+  transition: all 0.4s var(--ease);
+}
+.wines__tab:hover {
+  border-color: var(--bv-gold);
+  color: var(--bv-gold-light);
+}
+.wines__tab.is-active {
+  background: var(--bv-gold);
+  border-color: var(--bv-gold);
+  color: var(--bv-night);
+}
+
+.wines__detail {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 40px;
+  padding: clamp(28px, 4vw, 48px);
+  align-items: center;
+  --glass-bg: rgba(20, 19, 19, 0.5);
+}
+.wines__detail-main {
+  display: grid;
+  gap: 14px;
+}
+.wines__detail-main p {
+  margin: 0;
+  color: rgba(248, 249, 245, 0.82);
+}
+.wines__accolade {
+  font-style: italic;
+  color: var(--bv-gold-light);
+  border-left: 1px solid var(--bv-gold);
+  padding-left: 14px;
+}
+.wines__detail-side {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+}
+.wines__price {
+  display: grid;
+  gap: 4px;
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 144, 'SOFT' 100;
+  font-size: 44px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 900px) {
+  .wines__head,
+  .wines__detail {
+    grid-template-columns: 1fr;
+  }
+  .wines__stage {
+    height: 440px;
+  }
+}

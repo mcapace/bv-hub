@@ -1,0 +1,364 @@
+:root {
+  /* Beaulieu Vineyard brand palette (Brand Guidelines 2025, web colors) */
+  --bv-red: #67000d;
+  --bv-red-screen: #680e0f;
+  --bv-red-deep: #3a0008;
+  --bv-gold: #bc995d;
+  --bv-gold-light: #dcc48f;
+  --bv-gold-pale: #f6ebd8;
+  --bv-paper: #f8f9f5;
+  --bv-paper-warm: #fffef9;
+  --bv-stone: #cec5be;
+  --bv-charcoal: #3b3e3b;
+  --bv-ink: #141313;
+  --bv-night: #060709;
+
+  /* Display: Fraunces, a variable optical-size serif with soft and "wonky" axes.
+     Reading: Newsreader, an editorial text face with optical sizing.
+     Labels: Archivo at expanded width, standing in for Termina.
+     Script: Mrs Saint Delafield, standing in for Parfumerie Script.
+     For launch, swap to the brand's Adobe Fonts kit (Adobe Garamond Pro, Termina, Parfumerie Script). */
+  --font-display: 'Fraunces', 'Adobe Garamond Pro', Georgia, serif;
+  --font-serif: 'Newsreader', 'Adobe Garamond Pro', Georgia, serif;
+  --font-sans: 'Archivo', 'Termina', 'Helvetica Neue', Arial, sans-serif;
+  --font-script: 'Mrs Saint Delafield', 'Parfumerie Script', cursive;
+
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(220, 196, 143, 0.22);
+  --glass-highlight: rgba(255, 255, 255, 0.18);
+  --glass-blur: 22px;
+
+  --max: 1320px;
+  --gutter: clamp(20px, 5vw, 72px);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+  -webkit-text-size-adjust: 100%;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+body {
+  margin: 0;
+  background: var(--bv-night);
+  color: var(--bv-paper);
+  font-family: var(--font-serif);
+  font-size: 19px;
+  line-height: 1.55;
+  font-variation-settings: 'opsz' 18;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--bv-gold);
+  color: var(--bv-night);
+}
+
+/* ---------- Typography ---------- */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-variation-settings: 'wdth' 125;
+  font-stretch: 125%;
+  font-size: 10.5px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--bv-gold);
+}
+
+.eyebrow--muted {
+  color: var(--bv-stone);
+  opacity: 0.8;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 350;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 0;
+  font-variation-settings: 'opsz' 144, 'SOFT' 30, 'WONK' 1;
+}
+.display em,
+.display i {
+  font-style: italic;
+  font-weight: 300;
+  font-variation-settings: 'opsz' 144, 'SOFT' 60, 'WONK' 1;
+}
+
+.display--xl {
+  font-size: clamp(44px, 7.2vw, 108px);
+}
+.display--lg {
+  font-size: clamp(36px, 5vw, 72px);
+}
+.display--md {
+  font-size: clamp(28px, 3.4vw, 48px);
+}
+
+.script {
+  font-family: var(--font-script);
+  font-weight: 400;
+  color: var(--bv-gold-light);
+  line-height: 1;
+}
+
+.lede {
+  font-size: clamp(19px, 1.5vw, 23px);
+  line-height: 1.5;
+  font-variation-settings: 'opsz' 24;
+  color: rgba(248, 249, 245, 0.84);
+}
+
+.body {
+  max-width: 62ch;
+}
+
+.body p {
+  margin: 0 0 1.3em;
+}
+
+.dropcap::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
+  font-size: 4.6em;
+  line-height: 0.78;
+  padding: 0.08em 0.12em 0 0;
+  color: var(--bv-gold);
+}
+
+.rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--bv-gold), transparent);
+  opacity: 0.55;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  width: min(var(--max), calc(100% - 2 * var(--gutter)));
+  margin-inline: auto;
+}
+
+.section {
+  position: relative;
+  padding-block: clamp(80px, 11vw, 160px);
+}
+
+.section--paper {
+  background: var(--bv-paper);
+  color: var(--bv-ink);
+}
+.section--paper .lede {
+  color: rgba(20, 19, 19, 0.78);
+}
+.section--paper .eyebrow {
+  color: var(--bv-red);
+}
+.section--paper .script {
+  color: var(--bv-red);
+}
+
+.section--burgundy {
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(103, 0, 13, 0.55), transparent 60%),
+    linear-gradient(180deg, #1a0205 0%, var(--bv-night) 100%);
+}
+
+/* ---------- Glass ---------- */
+.glass {
+  position: relative;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  border-radius: 20px;
+  box-shadow:
+    0 30px 80px -30px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 var(--glass-highlight);
+  overflow: hidden;
+}
+
+.glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, transparent 38%),
+    radial-gradient(60% 40% at 100% 0%, rgba(188, 153, 93, 0.18), transparent 70%);
+}
+
+.glass--light {
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(103, 0, 13, 0.14);
+  --glass-highlight: rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 30px 60px -30px rgba(20, 19, 19, 0.25),
+    inset 0 1px 0 var(--glass-highlight);
+}
+
+.glass--pill {
+  border-radius: 999px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-variation-settings: 'wdth' 118;
+  font-stretch: 118%;
+  font-size: 11.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  padding: 16px 28px;
+  border-radius: 999px;
+  border: 1px solid var(--bv-gold);
+  color: var(--bv-gold-light);
+  background: rgba(188, 153, 93, 0.08);
+  transition:
+    transform 0.5s var(--ease),
+    background 0.4s,
+    color 0.4s,
+    box-shadow 0.5s;
+  white-space: nowrap;
+}
+.btn:hover {
+  background: var(--bv-gold);
+  color: var(--bv-night);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px -16px rgba(188, 153, 93, 0.6);
+}
+
+.btn--solid {
+  background: var(--bv-red);
+  border-color: var(--bv-red);
+  color: var(--bv-paper);
+}
+.btn--solid:hover {
+  background: var(--bv-gold);
+  border-color: var(--bv-gold);
+  color: var(--bv-night);
+}
+
+.btn--ghost {
+  border-color: rgba(248, 249, 245, 0.28);
+  color: var(--bv-paper);
+  background: transparent;
+}
+
+.section--paper .btn--ghost {
+  border-color: rgba(20, 19, 19, 0.25);
+  color: var(--bv-ink);
+}
+.section--paper .btn--ghost:hover {
+  background: var(--bv-ink);
+  color: var(--bv-paper);
+}
+
+.btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ---------- Utilities ---------- */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 6vw, 96px);
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.img-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+}
+.img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.img-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 1px rgba(188, 153, 93, 0.25);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.caption {
+  font-family: var(--font-sans);
+  font-variation-settings: 'wdth' 115;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--bv-stone);
+  margin-top: 14px;
+  opacity: 0.8;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

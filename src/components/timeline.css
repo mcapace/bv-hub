@@ -1,0 +1,211 @@
+.timeline {
+  background:
+    radial-gradient(70% 50% at 0% 100%, rgba(103, 0, 13, 0.35), transparent 70%),
+    var(--bv-night);
+  overflow: hidden;
+}
+
+.timeline__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 44px;
+}
+.timeline__head .display {
+  margin-top: 16px;
+}
+.timeline__head em {
+  font-style: italic;
+  color: var(--bv-gold-light);
+}
+.timeline__controls {
+  display: flex;
+  gap: 10px;
+}
+.tl-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(188, 153, 93, 0.4);
+  color: var(--bv-gold-light);
+  display: grid;
+  place-items: center;
+  transition: background 0.3s, color 0.3s, transform 0.4s var(--ease);
+}
+.tl-btn:hover {
+  background: var(--bv-gold);
+  color: var(--bv-night);
+  transform: translateY(-2px);
+}
+.tl-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.timeline__scroller {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  cursor: grab;
+  padding-block: 10px 30px;
+  -webkit-overflow-scrolling: touch;
+}
+.timeline__scroller::-webkit-scrollbar {
+  display: none;
+}
+.timeline__scroller.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
+.timeline__scroller.is-dragging .tl-card {
+  pointer-events: none;
+}
+
+.timeline__track {
+  display: flex;
+  gap: 22px;
+  padding-inline: max(var(--gutter), calc((100vw - var(--max)) / 2));
+  width: max-content;
+  perspective: 1400px;
+}
+
+.tl-card {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  width: 420px;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 22px;
+  transition: transform 0.9s var(--ease), border-color 0.6s, box-shadow 0.9s;
+  transform: rotateY(6deg) scale(0.97);
+  transform-style: preserve-3d;
+  user-select: none;
+}
+.tl-card.is-active {
+  transform: rotateY(0deg) scale(1);
+  border-color: rgba(220, 196, 143, 0.55);
+  box-shadow:
+    0 40px 100px -40px rgba(188, 153, 93, 0.45),
+    inset 0 1px 0 var(--glass-highlight);
+}
+.tl-card--text {
+  width: 360px;
+  justify-content: center;
+  background:
+    radial-gradient(100% 80% at 0% 0%, rgba(103, 0, 13, 0.55), transparent 70%),
+    var(--glass-bg);
+}
+
+.tl-card__media {
+  height: 280px;
+  overflow: hidden;
+}
+.tl-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.85);
+  transition: transform 1.4s var(--ease);
+}
+.tl-card:hover .tl-card__media img {
+  transform: scale(1.05);
+}
+
+.tl-card__body {
+  padding: 26px 28px 30px;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+.tl-card__year {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--bv-gold);
+}
+.tl-card--text .tl-card__year {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
+  font-size: 64px;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--bv-gold-light);
+  margin-bottom: 8px;
+}
+.tl-card__body h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 72, 'SOFT' 40, 'WONK' 1;
+  font-weight: 400;
+  font-size: 27px;
+  line-height: 1.1;
+}
+.tl-card__body p {
+  margin: 4px 0 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(248, 249, 245, 0.78);
+}
+
+.timeline__end {
+  flex: 0 0 auto;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  padding-left: 20px;
+}
+.timeline__end .script {
+  font-size: 56px;
+}
+
+.timeline__rail {
+  margin-top: 10px;
+}
+.timeline__rail-line {
+  height: 1px;
+  background: rgba(248, 249, 245, 0.14);
+  position: relative;
+}
+.timeline__rail-fill {
+  position: absolute;
+  left: 0;
+  top: -0.5px;
+  height: 2px;
+  background: var(--bv-gold);
+  transition: width 0.2s linear;
+}
+.timeline__years {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+.timeline__year {
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  color: rgba(248, 249, 245, 0.45);
+  padding: 6px 0;
+  transition: color 0.3s;
+}
+.timeline__year.is-active,
+.timeline__year:hover {
+  color: var(--bv-gold-light);
+}
+
+@media (max-width: 720px) {
+  .tl-card {
+    width: min(82vw, 380px);
+    min-height: 460px;
+  }
+  .tl-card__media {
+    height: 220px;
+  }
+  .timeline__years {
+    display: none;
+  }
+}

@@ -1,0 +1,136 @@
+.visit {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.visit__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.visit__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 70%;
+  filter: saturate(0.7) brightness(0.55);
+}
+.visit__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, var(--bv-night) 0%, rgba(6, 7, 9, 0.5) 30%, rgba(6, 7, 9, 0.75) 100%),
+    radial-gradient(60% 50% at 100% 100%, rgba(103, 0, 13, 0.45), transparent 70%);
+}
+
+.visit__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: clamp(40px, 6vw, 96px);
+  align-items: start;
+}
+
+.visit__intro {
+  display: grid;
+  gap: 24px;
+  position: sticky;
+  top: 110px;
+}
+.visit__intro .display {
+  margin-top: 16px;
+}
+.visit__intro em {
+  font-style: italic;
+  color: var(--bv-gold-light);
+}
+
+.visit__facts {
+  padding: 28px 30px;
+  display: grid;
+  gap: 24px;
+  --glass-bg: rgba(6, 7, 9, 0.45);
+}
+.visit__facts dl {
+  margin: 0;
+  display: grid;
+  gap: 16px;
+}
+.visit__facts dt {
+  margin-bottom: 4px;
+}
+.visit__facts dd {
+  margin: 0;
+  font-size: 17px;
+}
+.visit__facts-ctas {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.visit__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+.visit__exp {
+  padding: 26px 28px;
+  display: grid;
+  gap: 10px;
+  --glass-bg: rgba(6, 7, 9, 0.4);
+  transition: transform 0.7s var(--ease), border-color 0.4s;
+}
+.visit__exp:hover {
+  transform: translateX(6px);
+  border-color: rgba(220, 196, 143, 0.5);
+}
+.visit__exp-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.visit__exp h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 72, 'SOFT' 40, 'WONK' 1;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.1;
+}
+.visit__exp-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bv-gold-light);
+}
+.visit__exp-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--bv-gold);
+}
+.visit__exp p {
+  margin: 0;
+  font-size: 16px;
+  color: rgba(248, 249, 245, 0.76);
+}
+
+@media (max-width: 960px) {
+  .visit__inner {
+    grid-template-columns: 1fr;
+  }
+  .visit__intro {
+    position: static;
+  }
+}
