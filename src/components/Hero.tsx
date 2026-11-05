@@ -1,8 +1,10 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
-import { DustScene } from './DustScene'
+import { Suspense, lazy, useRef } from 'react'
+const DustScene = lazy(() => import('./DustScene').then((m) => ({ default: m.DustScene })))
 import { links } from '../content'
 import './hero.css'
+
+const noGL = typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('nogl')
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null)
@@ -18,7 +20,11 @@ export function Hero() {
         <img src="/img/vineyard-fall-drone.jpg" alt="Beaulieu Vineyard estate vineyards in Rutherford at dawn" fetchPriority="high" />
       </motion.div>
       <div className="hero__veil" />
-      <DustScene className="hero__dust" />
+      {!noGL && (
+        <Suspense fallback={null}>
+          <DustScene className="hero__dust" />
+        </Suspense>
+      )}
 
       <motion.div className="hero__content container" style={{ opacity: fade, y: rise }}>
         <motion.div

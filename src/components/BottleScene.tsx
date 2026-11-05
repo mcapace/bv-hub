@@ -1,5 +1,5 @@
 import { Suspense, useRef } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Float, MeshReflectorMaterial, useTexture } from '@react-three/drei'
 import * as THREE from 'three'
 import type { Wine } from '../content'
@@ -58,17 +58,22 @@ function Rig({ children }: { children: React.ReactNode }) {
     const ry = state.pointer.x * 0.22
     group.current.rotation.x = THREE.MathUtils.damp(group.current.rotation.x, rx, 3, dt)
     group.current.rotation.y = THREE.MathUtils.damp(group.current.rotation.y, ry, 3, dt)
+    // keep all five bottles in frame on narrow viewports
+    const s = THREE.MathUtils.clamp(state.viewport.aspect / 1.6, 0.52, 1)
+    group.current.scale.setScalar(THREE.MathUtils.damp(group.current.scale.x, s, 4, dt))
   })
   return <group ref={group}>{children}</group>
 }
 
 function Floor() {
+  const { size } = useThree()
+  const res = size.width < 700 ? 512 : 1024
   return (
     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.72, 0]}>
       <planeGeometry args={[30, 30]} />
       <MeshReflectorMaterial
         blur={[400, 120]}
-        resolution={1024}
+        resolution={res}
         mixBlur={1}
         mixStrength={18}
         roughness={0.9}

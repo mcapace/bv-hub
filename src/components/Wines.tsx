@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { Suspense, lazy, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { wines, links } from '../content'
-import { BottleScene } from './BottleScene'
+const BottleScene = lazy(() => import('./BottleScene').then((m) => ({ default: m.BottleScene })))
 import { Reveal } from './Reveal'
 import { Arrow } from './Hero'
 import './wines.css'
+
+const noGL = typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('nogl')
 
 export function Wines() {
   const [selected, setSelected] = useState(wines[0].id)
@@ -28,7 +30,11 @@ export function Wines() {
       </div>
 
       <div className="wines__stage">
-        <BottleScene wines={wines} selected={selected} onSelect={setSelected} />
+        {!noGL && (
+          <Suspense fallback={null}>
+            <BottleScene wines={wines} selected={selected} onSelect={setSelected} />
+          </Suspense>
+        )}
         <div className="wines__floorglow" aria-hidden />
       </div>
 
