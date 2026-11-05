@@ -17,8 +17,7 @@ function Bottle({ wine, index, total, selected, onSelect }: { wine: Wine; index:
   const aspect = img ? img.width / img.height : 0.3
   const h = 3.2
   const w = h * aspect
-  const spread = 1.35
-  const baseX = (index - (total - 1) / 2) * spread
+  const baseX = (index - (total - 1) / 2) * SPREAD
   const target = useRef(new THREE.Vector3(baseX, 0, 0))
 
   useFrame((_, dt) => {
@@ -50,7 +49,9 @@ function Bottle({ wine, index, total, selected, onSelect }: { wine: Wine; index:
   )
 }
 
-function Rig({ children }: { children: React.ReactNode }) {
+const SPREAD = 1.35
+
+function Rig({ children, selectedIndex, total }: { children: React.ReactNode; selectedIndex: number; total: number }) {
   const group = useRef<THREE.Group>(null)
   useFrame((state, dt) => {
     if (!group.current) return
@@ -58,9 +59,13 @@ function Rig({ children }: { children: React.ReactNode }) {
     const ry = state.pointer.x * 0.22
     group.current.rotation.x = THREE.MathUtils.damp(group.current.rotation.x, rx, 3, dt)
     group.current.rotation.y = THREE.MathUtils.damp(group.current.rotation.y, ry, 3, dt)
-    // keep all five bottles in frame on narrow viewports
-    const s = THREE.MathUtils.clamp(state.viewport.aspect / 1.6, 0.52, 1)
+    // Wide screens show the full row. Narrow screens scale down and slide the
+    // row so the selected bottle sits in the center, like a carousel.
+    const narrow = state.viewport.aspect < 1.2
+    const s = narrow ? 0.78 : THREE.MathUtils.clamp(state.viewport.aspect / 1.6, 0.7, 1)
+    const tx = narrow ? -(selectedIndex - (total - 1) / 2) * SPREAD * s : 0
     group.current.scale.setScalar(THREE.MathUtils.damp(group.current.scale.x, s, 4, dt))
+    group.current.position.x = THREE.MathUtils.damp(group.current.position.x, tx, 4, dt)
   })
   return <group ref={group}>{children}</group>
 }
@@ -101,7 +106,7 @@ export function BottleScene({ wines, selected, onSelect }: { wines: Wine[]; sele
       <spotLight position={[4, 6, 6]} intensity={40} angle={0.5} penumbra={1} color="#f6ebd8" />
       <pointLight position={[-5, 2, 3]} intensity={12} color="#bc995d" />
       <Suspense fallback={null}>
-        <Rig>
+        <Rig selectedIndex={Math.max(0, wines.findIndex((w) => w.id === selected))} total={wines.length}>
           {wines.map((w, i) => (
             <Bottle key={w.id} wine={w} index={i} total={wines.length} selected={w.id === selected} onSelect={() => onSelect(w.id)} />
           ))}
