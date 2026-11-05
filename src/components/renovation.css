@@ -74,9 +74,10 @@
 }
 .renovation__label {
   font-family: var(--font-caps);
-  font-variant-caps: all-small-caps;
-  font-size: 15px;
-  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-variation-settings: 'wdth' 120;
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
   color: var(--bv-charcoal);
 }
 

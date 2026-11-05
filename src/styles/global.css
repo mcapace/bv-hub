@@ -13,12 +13,15 @@
   --bv-ink: #141313;
   --bv-night: #060709;
 
-  /* Ibarra Real Nova, a revival of the 1780 Ibarra type, carries the whole page:
-     roman and italic for headlines and reading, small caps for eyebrows, nav and buttons.
-     The only script on the page is the BV logo itself. */
-  --font-display: 'Ibarra Real Nova', 'Adobe Garamond Pro', Georgia, serif;
-  --font-serif: 'Ibarra Real Nova', 'Adobe Garamond Pro', Georgia, serif;
-  --font-caps: 'Ibarra Real Nova', 'Adobe Garamond Pro', Georgia, serif;
+  /* Type system, chosen to avoid a stock look:
+     Fraunces, a variable serif with optical-size, SOFT and WONK axes, carries headlines and reading.
+     Archivo at expanded width handles labels, nav and buttons (standing in for the brand's Termina).
+     Ballet, a high-contrast variable script, is used once, for the "Quel beau lieu" flourish.
+     For launch, the brand's Adobe Fonts kit (Adobe Garamond Pro, Termina, Parfumerie Script) can replace these. */
+  --font-display: 'Fraunces', 'Adobe Garamond Pro', Georgia, serif;
+  --font-serif: 'Fraunces', 'Adobe Garamond Pro', Georgia, serif;
+  --font-caps: 'Archivo', 'Termina', 'Helvetica Neue', Arial, sans-serif;
+  --font-script: 'Ballet', 'Parfumerie Script', cursive;
 
   --glass-bg: rgba(255, 255, 255, 0.06);
   --glass-border: rgba(220, 196, 143, 0.22);
@@ -57,8 +60,9 @@ body {
   background: var(--bv-night);
   color: var(--bv-paper);
   font-family: var(--font-serif);
-  font-size: 19px;
+  font-size: 18px;
   line-height: 1.62;
+  font-variation-settings: 'opsz' 14, 'SOFT' 40, 'WONK' 0;
   font-variant-numeric: oldstyle-nums proportional-nums;
   font-kerning: normal;
   font-feature-settings: 'kern', 'liga', 'clig', 'calt';
@@ -95,15 +99,22 @@ button {
 .eyebrow {
   font-family: var(--font-caps);
   font-weight: 500;
-  font-variant-caps: all-small-caps;
+  font-variation-settings: 'wdth' 125;
+  font-stretch: 125%;
+  text-transform: uppercase;
   font-variant-numeric: lining-nums;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.3em;
 }
 
 .eyebrow {
-  font-size: 17px;
-  line-height: 1.3;
+  font-size: 10.5px;
+  line-height: 1.5;
   color: var(--bv-gold);
+}
+
+em,
+i {
+  font-variation-settings: 'opsz' 14, 'SOFT' 80, 'WONK' 1;
 }
 
 .eyebrow--muted {
@@ -113,18 +124,20 @@ button {
 
 .display {
   font-family: var(--font-display);
-  font-weight: 400;
-  line-height: 1.02;
-  letter-spacing: -0.018em;
+  font-weight: 350;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
   margin: 0;
+  font-variation-settings: 'opsz' 144, 'SOFT' 30, 'WONK' 1;
   font-variant-numeric: lining-nums;
   text-wrap: balance;
 }
 .display em,
 .display i {
   font-style: italic;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: -0.005em;
+  font-variation-settings: 'opsz' 144, 'SOFT' 60, 'WONK' 1;
 }
 
 .display--xl {
@@ -139,19 +152,22 @@ button {
   line-height: 1.06;
 }
 
-/* An italic flourish in place of a script face */
+/* The one script on the page */
 .flourish {
-  font-family: var(--font-display);
-  font-style: italic;
+  font-family: var(--font-script);
+  font-style: normal;
   font-weight: 400;
-  letter-spacing: 0.01em;
+  font-variation-settings: 'opsz' 72;
+  letter-spacing: 0;
   line-height: 1;
   color: var(--bv-gold-light);
 }
 
 .lede {
-  font-size: clamp(20px, 1.55vw, 24px);
-  line-height: 1.55;
+  font-size: clamp(19px, 1.5vw, 23px);
+  line-height: 1.5;
+  font-weight: 350;
+  font-variation-settings: 'opsz' 30, 'SOFT' 60, 'WONK' 0;
   color: rgba(248, 249, 245, 0.84);
   text-wrap: pretty;
 }
@@ -170,14 +186,14 @@ button {
   float: left;
   font-family: var(--font-display);
   font-weight: 400;
+  font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
   font-size: 5.1em;
   line-height: 0.74;
   padding: 0.07em 0.1em 0 0;
   color: var(--bv-gold);
 }
 .dropcap > p:first-child::first-line {
-  font-variant-caps: all-small-caps;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.02em;
 }
 
 .rule {
@@ -261,12 +277,14 @@ button {
   gap: 12px;
   font-family: var(--font-caps);
   font-weight: 500;
-  font-variant-caps: all-small-caps;
+  font-variation-settings: 'wdth' 118;
+  font-stretch: 118%;
+  text-transform: uppercase;
   font-variant-numeric: lining-nums;
-  font-size: 17px;
+  font-size: 11.5px;
   line-height: 1;
-  letter-spacing: 0.12em;
-  padding: 15px 28px 17px;
+  letter-spacing: 0.24em;
+  padding: 17px 28px;
   border-radius: 999px;
   border: 1px solid var(--bv-gold);
   color: var(--bv-gold-light);
@@ -386,8 +404,9 @@ button {
   background: var(--bv-gold);
   color: var(--bv-night);
   font-family: var(--font-caps);
-  font-variant-caps: all-small-caps;
-  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.2em;
   transform: translateY(-160%);
   transition: transform 0.3s var(--ease);
 }

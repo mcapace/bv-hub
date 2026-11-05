@@ -30,19 +30,20 @@ export function Chapters() {
         >
           {chapters.map((c, i) => (
             <motion.li key={c.slug} variants={item} className={`chapter-card chapter-card--${c.status}`}>
-              <a href={`#chapter-${i + 1}`} className="chapter-card__link">
+              <a href={c.status === 'live' ? '#chapter-1' : `#chapter-${i + 1}`} className="chapter-card__link">
                 <div className="chapter-card__media">
                   <img src={c.image} alt="" loading="lazy" />
                 </div>
-                <div className="chapter-card__spacer" aria-hidden />
-                <div className="chapter-card__top">
-                  <span className="chapter-card__num">{c.number}</span>
-                  <span className={`chapter-card__status chapter-card__status--${c.status}`}>{statusLabel[c.status]}</span>
+                <div className="chapter-card__body">
+                  <div className="chapter-card__top">
+                    <span className="chapter-card__num">{c.number}</span>
+                    <span className={`chapter-card__status chapter-card__status--${c.status}`}>{statusLabel[c.status]}</span>
+                  </div>
+                  <h3 className="display display--md">{c.title}</h3>
+                  <span className="chapter-card__feature">{c.feature}</span>
+                  <p>{c.summary}</p>
+                  <span className="chapter-card__window eyebrow eyebrow--muted">{c.window}</span>
                 </div>
-                <h3 className="display display--md chapter-card__title">{c.title}</h3>
-                <span className="chapter-card__feature">{c.feature}</span>
-                <p className="chapter-card__summary">{c.summary}</p>
-                <span className="chapter-card__window eyebrow eyebrow--muted">{c.window}</span>
               </a>
             </motion.li>
           ))}

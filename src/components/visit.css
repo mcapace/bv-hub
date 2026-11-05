@@ -91,9 +91,10 @@
 }
 .visit__filter-label {
   font-family: var(--font-caps);
-  font-variant-caps: all-small-caps;
-  font-size: 16px;
-  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-variation-settings: 'wdth' 120;
+  font-size: 11px;
+  letter-spacing: 0.24em;
   color: var(--bv-stone);
 }
 .visit__chips {
@@ -146,9 +147,10 @@
   gap: 8px;
   margin-top: 4px;
   font-family: var(--font-caps);
-  font-variant-caps: all-small-caps;
-  font-size: 16px;
-  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-variation-settings: 'wdth' 120;
+  font-size: 11px;
+  letter-spacing: 0.24em;
   color: var(--bv-gold-light);
   border-bottom: 1px solid rgba(188, 153, 93, 0.4);
   padding-bottom: 2px;
@@ -209,10 +211,11 @@
   align-items: center;
   gap: 10px;
   font-family: var(--font-caps);
-  font-variant-caps: all-small-caps;
+  text-transform: uppercase;
+  font-variation-settings: 'wdth' 120;
   font-variant-numeric: lining-nums;
-  font-size: 16px;
-  letter-spacing: 0.1em;
+  font-size: 11px;
+  letter-spacing: 0.2em;
   color: var(--bv-gold-light);
 }
 .visit__exp-dot {

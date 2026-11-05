@@ -99,11 +99,11 @@
 .hero__flourish {
   display: flex;
   align-items: center;
-  gap: 0.6em;
-  font-size: 0.3em;
+  gap: 0.5em;
+  font-size: 0.52em;
   font-weight: 400;
-  margin-bottom: 0.5em;
-  letter-spacing: 0.02em;
+  margin: 0.2em 0 0.1em 0.3em;
+  padding-left: 0.1em;
 }
 .hero__flourish::after {
   content: '';
@@ -166,5 +166,12 @@
   }
   .hero__dot {
     display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero__presenter .eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.2em;
   }
 }

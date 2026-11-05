@@ -39,8 +39,7 @@ export const chapters: Chapter[] = [
     title: 'Anticipation',
     window: 'November to December 2026',
     feature: 'The House That Latour Built',
-    summary:
-      'Three words, a four-acre ranch, and a conviction that Rutherford could rival the great estates of France. The heritage story and an interactive timeline from 1900 to today.',
+    summary: 'Three words, a four-acre ranch, and a conviction that Rutherford could rival the great estates of France.',
     image: '/img/georges-de-latour.jpg',
     status: 'live',
   },
@@ -50,8 +49,7 @@ export const chapters: Chapter[] = [
     title: 'The Return',
     window: 'January to February 2027',
     feature: 'Inside the Reopening of BV',
-    summary:
-      'The most significant transformation of the Rutherford estate in generations. Step inside the restored 1885 stone winery and the new hospitality center.',
+    summary: 'Inside the most significant transformation of the Rutherford estate in generations.',
     image: '/img/construction-drone.jpg',
     status: 'next',
   },
@@ -61,8 +59,7 @@ export const chapters: Chapter[] = [
     title: 'The Experience',
     window: 'March to April 2027',
     feature: "Tchelistcheff’s Legacy",
-    summary:
-      'A ratings retrospective drawn from the Wine Spectator archive, an immersive photo essay, and a visit planner for the new tasting experiences.',
+    summary: 'A ratings retrospective from the Wine Spectator archive, a photo essay, and a planner for your visit.',
     image: '/img/andre-barrel-room.jpg',
     status: 'upcoming',
   },
@@ -72,8 +69,7 @@ export const chapters: Chapter[] = [
     title: 'The Legacy Continues',
     window: 'May to June 2027',
     feature: 'Georges de Latour Private Reserve, Vertical',
-    summary:
-      "A vertical tasting of Napa Valley’s first cult Cabernet, and an invitation to return to Rutherford before summer.",
+    summary: "A vertical tasting of Napa Valley’s first cult Cabernet, and an invitation to return before summer.",
     image: '/img/gdl-1949-bottles.jpg',
     status: 'upcoming',
   },

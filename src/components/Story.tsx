@@ -91,14 +91,15 @@ export function Story() {
                 <figcaption className="caption">Vineyard crew, BV Ranch, early 1900s</figcaption>
               </figure>
             </Reveal>
-            <Reveal delay={0.15}>
-              <figure className="story__figure">
-                <Parallax src="/img/winery-exterior-archive.jpg" alt="The 1885 stone winery that became the home of Beaulieu Vineyard" from={20} to={-30} />
-                <figcaption className="caption">The 1885 stone winery, purchased 1923</figcaption>
-              </figure>
-            </Reveal>
           </div>
         </div>
+
+        <Reveal as="figure" className="story__strip">
+          <div className="img-frame">
+            <img src="/img/winery-exterior-archive.jpg" alt="The 1885 stone winery that became the home of Beaulieu Vineyard" loading="lazy" />
+          </div>
+          <figcaption className="caption glass">The 1885 stone winery, purchased by the de Latours in 1923</figcaption>
+        </Reveal>
       </div>
     </section>
   )

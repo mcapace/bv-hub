@@ -116,10 +116,11 @@
 }
 .wines__tab {
   font-family: var(--font-caps);
-  font-variant-caps: all-small-caps;
-  font-size: 16px;
+  text-transform: uppercase;
+  font-variation-settings: 'wdth' 120;
+  font-size: 11px;
   line-height: 1;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
   padding: 12px 20px 14px;
   border-radius: 999px;
   border: 1px solid rgba(248, 249, 245, 0.16);
