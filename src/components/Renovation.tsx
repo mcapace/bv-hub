@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion'
 import { renovation, links } from '../content'
-import { Reveal, item } from './Reveal'
+import { Reveal } from './Reveal'
+import { item } from '../lib/motion'
 import { Arrow } from './Hero'
 import './renovation.css'
 
 export function Renovation() {
   return (
-    <section className="section section--paper renovation" id="chapter-2">
+    <section className="section section--paper renovation" id="chapter-2" data-chapter="2">
       <div className="container">
         <div className="renovation__grid">
           <div className="renovation__text">
@@ -25,9 +26,9 @@ export function Renovation() {
                 new culinary garden from the moment they enter.
               </p>
               <p>
-                Redwood salvaged from old wine tanks became ceilings. Georges de Latour's 1925 Cadillac now greets guests
+                Redwood salvaged from old wine tanks became ceilings. Georges de Latour’s 1925 Cadillac now greets guests
                 in the entrance hall beside a statue of the Maestro. Completed in 2026, the estate opens with seven
-                tasting spaces, a dedicated club lounge, and BV's first culinary program.
+                tasting spaces, a dedicated club lounge, and BV’s first culinary program.
               </p>
             </Reveal>
             <Reveal delay={0.15} className="renovation__ctas">
@@ -42,7 +43,7 @@ export function Renovation() {
               <img src="/img/construction-drone.jpg" alt="Aerial view of the Beaulieu Vineyard winery during renovation" loading="lazy" />
             </Reveal>
             <Reveal delay={0.1} className="img-frame renovation__img renovation__img--small">
-              <img src="/img/hand-on-bumper.jpg" alt="Georges de Latour's 1925 Cadillac in the new entrance hall" loading="lazy" />
+              <img src="/img/hand-on-bumper.jpg" alt="Georges de Latour’s 1925 Cadillac in the new entrance hall" loading="lazy" />
             </Reveal>
             <Reveal delay={0.15} className="img-frame renovation__img renovation__img--small2">
               <img src="/img/construction-sign-closeup.jpg" alt="The original Beaulieu Vineyard sign, restored" loading="lazy" />

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { chapters } from '../content'
-import { Reveal, item } from './Reveal'
+import { Reveal } from './Reveal'
+import { item } from '../lib/motion'
 import './chapters.css'
 
 const statusLabel = { live: 'Now live', next: 'Opening January', upcoming: 'Coming' }

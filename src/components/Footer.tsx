@@ -31,7 +31,7 @@ export function Footer() {
           <span className="eyebrow eyebrow--muted">Partner content</span>
           <p>
             This feature was produced by the Wine Spectator custom content studio in partnership with Beaulieu Vineyard.
-            Wine Spectator's editorial staff was not involved in its creation.
+            Wine Spectator’s editorial staff was not involved in its creation.
           </p>
           <a href={links.wineSpectator} target="_blank" rel="noreferrer" className="footer__wsmark">
             WineSpectator.com

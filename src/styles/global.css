@@ -13,15 +13,13 @@
   --bv-ink: #141313;
   --bv-night: #060709;
 
-  /* Display: Fraunces, a variable optical-size serif with soft and "wonky" axes.
-     Reading: Newsreader, an editorial text face with optical sizing.
-     Labels: Archivo at expanded width, standing in for Termina.
-     Script: Mrs Saint Delafield, standing in for Parfumerie Script.
-     For launch, swap to the brand's Adobe Fonts kit (Adobe Garamond Pro, Termina, Parfumerie Script). */
-  --font-display: 'Fraunces', 'Adobe Garamond Pro', Georgia, serif;
-  --font-serif: 'Newsreader', 'Adobe Garamond Pro', Georgia, serif;
-  --font-sans: 'Archivo', 'Termina', 'Helvetica Neue', Arial, sans-serif;
-  --font-script: 'Mrs Saint Delafield', 'Parfumerie Script', cursive;
+  /* A single Garamond lineage, matching the brand's Adobe Garamond Pro.
+     Display: Cormorant Garamond, cut for large sizes with fine hairlines and a true italic.
+     Reading and labels: EB Garamond, set in true small caps for eyebrows, nav and buttons.
+     The only script on the page is the BV logo itself. */
+  --font-display: 'Cormorant Garamond', 'Adobe Garamond Pro', Garamond, Georgia, serif;
+  --font-serif: 'EB Garamond', 'Adobe Garamond Pro', Garamond, Georgia, serif;
+  --font-caps: 'EB Garamond', 'Adobe Garamond Pro', Garamond, Georgia, serif;
 
   --glass-bg: rgba(255, 255, 255, 0.06);
   --glass-border: rgba(220, 196, 143, 0.22);
@@ -60,10 +58,11 @@ body {
   background: var(--bv-night);
   color: var(--bv-paper);
   font-family: var(--font-serif);
-  font-size: 19px;
-  line-height: 1.55;
-  font-variation-settings: 'opsz' 18;
-  font-optical-sizing: auto;
+  font-size: 20px;
+  line-height: 1.6;
+  font-variant-numeric: oldstyle-nums proportional-nums;
+  font-kerning: normal;
+  font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -93,14 +92,18 @@ button {
 }
 
 /* ---------- Typography ---------- */
+.caps,
 .eyebrow {
-  font-family: var(--font-sans);
+  font-family: var(--font-caps);
   font-weight: 500;
-  font-variation-settings: 'wdth' 125;
-  font-stretch: 125%;
-  font-size: 10.5px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
+  font-variant-caps: all-small-caps;
+  font-variant-numeric: lining-nums;
+  letter-spacing: 0.14em;
+}
+
+.eyebrow {
+  font-size: 17px;
+  line-height: 1.3;
   color: var(--bv-gold);
 }
 
@@ -111,41 +114,47 @@ button {
 
 .display {
   font-family: var(--font-display);
-  font-weight: 350;
-  line-height: 0.98;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  line-height: 0.96;
+  letter-spacing: -0.012em;
   margin: 0;
-  font-variation-settings: 'opsz' 144, 'SOFT' 30, 'WONK' 1;
+  font-variant-numeric: lining-nums;
+  text-wrap: balance;
 }
 .display em,
 .display i {
   font-style: italic;
-  font-weight: 300;
-  font-variation-settings: 'opsz' 144, 'SOFT' 60, 'WONK' 1;
+  font-weight: 400;
+  letter-spacing: -0.005em;
 }
 
 .display--xl {
-  font-size: clamp(44px, 7.2vw, 108px);
+  font-size: clamp(50px, 7.8vw, 124px);
+  font-weight: 300;
 }
 .display--lg {
-  font-size: clamp(36px, 5vw, 72px);
+  font-size: clamp(40px, 5.4vw, 80px);
 }
 .display--md {
-  font-size: clamp(28px, 3.4vw, 48px);
+  font-size: clamp(30px, 3.4vw, 50px);
+  line-height: 1.02;
 }
 
-.script {
-  font-family: var(--font-script);
+/* An italic flourish in place of a script face */
+.flourish {
+  font-family: var(--font-display);
+  font-style: italic;
   font-weight: 400;
-  color: var(--bv-gold-light);
+  letter-spacing: 0.01em;
   line-height: 1;
+  color: var(--bv-gold-light);
 }
 
 .lede {
-  font-size: clamp(19px, 1.5vw, 23px);
-  line-height: 1.5;
-  font-variation-settings: 'opsz' 24;
+  font-size: clamp(20px, 1.55vw, 24px);
+  line-height: 1.55;
   color: rgba(248, 249, 245, 0.84);
+  text-wrap: pretty;
 }
 
 .body {
@@ -154,16 +163,22 @@ button {
 
 .body p {
   margin: 0 0 1.3em;
+  text-wrap: pretty;
+  hyphens: manual;
 }
 
-.dropcap::first-letter {
+.dropcap > p:first-child::first-letter {
   float: left;
   font-family: var(--font-display);
-  font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
-  font-size: 4.6em;
-  line-height: 0.78;
-  padding: 0.08em 0.12em 0 0;
+  font-weight: 400;
+  font-size: 5.1em;
+  line-height: 0.74;
+  padding: 0.07em 0.1em 0 0;
   color: var(--bv-gold);
+}
+.dropcap > p:first-child::first-line {
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.06em;
 }
 
 .rule {
@@ -193,7 +208,7 @@ button {
 .section--paper .eyebrow {
   color: var(--bv-red);
 }
-.section--paper .script {
+.section--paper .flourish {
   color: var(--bv-red);
 }
 
@@ -245,14 +260,14 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-family: var(--font-sans);
+  font-family: var(--font-caps);
   font-weight: 500;
-  font-variation-settings: 'wdth' 118;
-  font-stretch: 118%;
-  font-size: 11.5px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  padding: 16px 28px;
+  font-variant-caps: all-small-caps;
+  font-variant-numeric: lining-nums;
+  font-size: 17px;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  padding: 15px 28px 17px;
   border-radius: 999px;
   border: 1px solid var(--bv-gold);
   color: var(--bv-gold-light);
@@ -263,6 +278,14 @@ button {
     color 0.4s,
     box-shadow 0.5s;
   white-space: nowrap;
+  max-width: 100%;
+}
+@media (max-width: 600px) {
+  .btn {
+    white-space: normal;
+    text-align: left;
+    line-height: 1.15;
+  }
 }
 .btn:hover {
   background: var(--bv-gold);
@@ -336,14 +359,41 @@ button {
 }
 
 .caption {
-  font-family: var(--font-sans);
-  font-variation-settings: 'wdth' 115;
-  font-size: 10.5px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 15px;
+  letter-spacing: 0.01em;
   color: var(--bv-stone);
   margin-top: 14px;
-  opacity: 0.8;
+  opacity: 0.9;
+}
+
+:focus-visible {
+  outline: 1px solid var(--bv-gold-light);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+.btn:focus-visible {
+  border-radius: 999px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--bv-gold);
+  color: var(--bv-night);
+  font-family: var(--font-caps);
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.12em;
+  transform: translateY(-160%);
+  transition: transform 0.3s var(--ease);
+}
+.skip-link:focus-visible {
+  transform: none;
 }
 
 .sr-only {

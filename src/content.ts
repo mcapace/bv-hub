@@ -1,6 +1,6 @@
 /**
  * All copy and data for the BV hub.
- * Sources: BV 2026 Press Kit, BV Brand Guidelines 2025, Katelyn Garzon's
+ * Sources: BV 2026 Press Kit, BV Brand Guidelines 2025, Katelyn Garzon’s
  * "BV WS Brand Hub Brief", and the signed Wine Spectator IO (Nov 2026 - Jun 2027).
  *
  * TODO (confirm with Katelyn Garzon before launch): the exact destination URLs for
@@ -60,7 +60,7 @@ export const chapters: Chapter[] = [
     slug: 'the-experience',
     title: 'The Experience',
     window: 'March to April 2027',
-    feature: "Tchelistcheff's Legacy",
+    feature: "Tchelistcheff’s Legacy",
     summary:
       'A ratings retrospective drawn from the Wine Spectator archive, an immersive photo essay, and a visit planner for the new tasting experiences.',
     image: '/img/andre-barrel-room.jpg',
@@ -73,7 +73,7 @@ export const chapters: Chapter[] = [
     window: 'May to June 2027',
     feature: 'Georges de Latour Private Reserve, Vertical',
     summary:
-      "A vertical tasting of Napa Valley's first cult Cabernet, and an invitation to return to Rutherford before summer.",
+      "A vertical tasting of Napa Valley’s first cult Cabernet, and an invitation to return to Rutherford before summer.",
     image: '/img/gdl-1949-bottles.jpg',
     status: 'upcoming',
   },
@@ -90,7 +90,7 @@ export const timeline: TimelineEntry[] = [
   {
     year: '1900',
     title: 'Quel beau lieu',
-    text: 'On May 12, Georges and Fernande de Latour buy four acres in Rutherford. Fernande names it with three words: "What a beautiful place."',
+    text: 'On May 12, Georges and Fernande de Latour buy four acres in Rutherford. Fernande names it with three words: “What a beautiful place.”',
     image: '/img/georges-de-latour.jpg',
   },
   {
@@ -102,7 +102,7 @@ export const timeline: TimelineEntry[] = [
   {
     year: '1919',
     title: 'Rutherford, named with intent',
-    text: 'BV labels its Cabernet Sauvignon "Rutherford," decades before the appellation system existed.',
+    text: 'BV labels its Cabernet Sauvignon “Rutherford,” decades before the appellation system existed.',
   },
   {
     year: '1920s',
@@ -119,7 +119,7 @@ export const timeline: TimelineEntry[] = [
   {
     year: '1941',
     title: 'Georges de Latour Private Reserve',
-    text: "The family's own reserve lot is released to the public. Napa Valley's first cult Cabernet is born.",
+    text: "The family’s own reserve lot is released to the public. Napa Valley’s first cult Cabernet is born.",
     image: '/img/gdl-old-label.jpg',
   },
   {
@@ -177,7 +177,7 @@ export const wines: Wine[] = [
     short: 'Private Reserve',
     srp: '$180',
     image: '/bottles/bottle-gdl.png',
-    tagline: "Napa Valley's first grand cru",
+    tagline: "Napa Valley’s first grand cru",
     description:
       'Hand-selected from BV Ranches No. 1 and No. 2 on the western Rutherford bench, a portion fermented in new French oak for density and texture. Bold, complex, and marked by the cocoa-powder note the Maestro called Rutherford Dust.',
     accolade: '2021 vintage: No. 2, Wine Spectator Top 100',
@@ -190,7 +190,7 @@ export const wines: Wine[] = [
     image: '/bottles/bottle-rutherford-res.png',
     tagline: 'A tribute to the western bench',
     description:
-      'Classic "sauvage" character from estate vineyards, cold-soaked for seven days for gentle extraction and aged in a careful selection of new and neutral French oak.',
+      'Classic “sauvage” character from estate vineyards, cold-soaked for seven days for gentle extraction and aged in a careful selection of new and neutral French oak.',
   },
   {
     id: 'tapestry',
@@ -228,7 +228,11 @@ export const wines: Wine[] = [
 export interface Experience {
   name: string
   price: string
+  /** Price per guest in USD, used by the visit planner filters */
+  priceValue: number
   duration: string
+  /** Length in minutes, used by the visit planner filters */
+  minutes: number
   text: string
 }
 
@@ -236,37 +240,49 @@ export const experiences: Experience[] = [
   {
     name: 'The 1885 Tasting',
     price: '$50',
+    priceValue: 50,
     duration: '60 min',
+    minutes: 60,
     text: 'A seated introduction to Beaulieu Vineyard in the Rutherford Atrium and the 1885 Courtyard, through a curated flight of signature wines.',
   },
   {
     name: 'BV Heritage Tasting',
     price: '$80',
+    priceValue: 80,
     duration: '90 min',
+    minutes: 90,
     text: 'Inspired by the European roots of Georges and Fernande, an elevated tasting with light seasonal bites.',
   },
   {
     name: 'A Walk with the Maestro',
     price: '$95',
+    priceValue: 95,
     duration: '90 min',
-    text: "Shaped by Tchelistcheff's teaching legacy: vineyards, cellar, the fundamentals of tasting, then a guided seated flight.",
+    minutes: 90,
+    text: "Shaped by Tchelistcheff’s teaching legacy: vineyards, cellar, the fundamentals of tasting, then a guided seated flight.",
   },
   {
     name: 'The Georges de Latour Table',
     price: '$150',
+    priceValue: 150,
     duration: '120 min',
-    text: "An intimate multi-course pairing in the new Georges de Latour Library, exploring BV's most celebrated wines.",
+    minutes: 120,
+    text: "An intimate multi-course pairing in the new Georges de Latour Library, exploring BV’s most celebrated wines.",
   },
   {
     name: 'The Time Traveler',
     price: '$300',
+    priceValue: 300,
     duration: '120 min',
+    minutes: 120,
     text: 'A library exploration across generations of BV winemaking, with rare historic wines and bites inspired by archived recipes.',
   },
   {
     name: 'BV Legacy Experience',
     price: '$60,000',
+    priceValue: 60000,
     duration: 'Full day, up to 6',
+    minutes: 480,
     text: 'Private EV transportation, a tour with Nate Weis, a five-course lunch, a private barrel tasting, custom bottling, and twelve signed bottles of Private Reserve.',
   },
 ]

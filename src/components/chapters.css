@@ -75,17 +75,18 @@
 }
 .chapter-card__num {
   font-family: var(--font-display);
-  font-variation-settings: 'opsz' 144, 'SOFT' 100;
-  font-size: 26px;
+  font-style: italic;
+  font-size: 30px;
   color: var(--bv-gold);
   line-height: 1;
 }
 .chapter-card__status {
-  font-family: var(--font-sans);
-  font-size: 9.5px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  padding: 6px 10px;
+  font-family: var(--font-caps);
+  font-variant-caps: all-small-caps;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  padding: 5px 11px 7px;
   border-radius: 999px;
   border: 1px solid rgba(188, 153, 93, 0.35);
   color: var(--bv-gold-light);
@@ -101,22 +102,23 @@
 }
 
 .chapter-card__body h3 {
-  font-size: clamp(22px, 1.7vw, 27px);
+  font-size: clamp(26px, 2vw, 32px);
+  font-weight: 500;
 }
 .chapter-card__feature {
   font-style: italic;
   color: var(--bv-gold-light);
-  font-size: 16px;
+  font-size: 17px;
 }
 .chapter-card__body p {
   margin: 4px 0 0;
-  font-size: 14px;
+  font-size: 15.5px;
   line-height: 1.45;
   color: rgba(248, 249, 245, 0.78);
 }
 .chapter-card__window {
   margin-top: 8px;
-  font-size: 10px;
+  font-size: 13.5px;
 }
 
 .chapter-card--upcoming .chapter-card__media img {

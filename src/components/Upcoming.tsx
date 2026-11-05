@@ -4,7 +4,7 @@ import './upcoming.css'
 
 export function Upcoming() {
   return (
-    <section className="section upcoming" id="chapter-3">
+    <section className="section upcoming" id="chapter-3" data-chapter="3">
       <div className="container">
         <Reveal className="upcoming__head">
           <span className="eyebrow">Coming this spring</span>
@@ -42,7 +42,7 @@ export function Upcoming() {
             </div>
           </Reveal>
 
-          <Reveal className="upcoming__card glass" delay={0.15} id="chapter-4">
+          <Reveal className="upcoming__card glass" delay={0.15} id="chapter-4" chapter={4}>
             <div className="upcoming__media">
               <img src="/img/gdl-1949-bottles.jpg" alt="Historic bottles of Georges de Latour Private Reserve" loading="lazy" />
             </div>
@@ -63,7 +63,7 @@ export function Upcoming() {
             <div className="upcoming__body">
               <span className="eyebrow eyebrow--muted">Now streaming</span>
               <h3 className="display display--md">Stem &amp; Barrel</h3>
-              <p>A documentary on the people and the place behind Napa Valley's original Cabernet house.</p>
+              <p>A documentary on the people and the place behind Napa Valley’s original Cabernet house.</p>
               <a href={links.documentary} target="_blank" rel="noreferrer" className="btn btn--ghost">
                 Watch the trailer
               </a>

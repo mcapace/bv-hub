@@ -55,28 +55,41 @@ const fragment = /* glsl */ `
   }
 `
 
+/** Deterministic PRNG (mulberry32), so the dust field is identical on every render. */
+function seeded(seed: number) {
+  let a = seed
+  return () => {
+    a = (a + 0x6d2b79f5) | 0
+    let t = Math.imul(a ^ (a >>> 15), 1 | a)
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+  }
+}
+
+function makeDust(count: number) {
+  const rand = seeded(1900)
+  const positions = new Float32Array(count * 3)
+  const scales = new Float32Array(count)
+  const speeds = new Float32Array(count)
+  const offsets = new Float32Array(count)
+  for (let i = 0; i < count; i++) {
+    positions[i * 3] = (rand() - 0.5) * 18
+    positions[i * 3 + 1] = (rand() - 0.5) * 10
+    positions[i * 3 + 2] = (rand() - 0.5) * 12
+    scales[i] = rand() < 0.9 ? 0.6 + rand() * 1.4 : 2.4 + rand() * 3.2
+    speeds[i] = 0.4 + rand() * 0.9
+    offsets[i] = rand() * 100
+  }
+  return { positions, scales, speeds, offsets }
+}
+
 function Dust({ count = 2600 }: { count?: number }) {
   const mat = useRef<THREE.ShaderMaterial>(null)
   const mouse = useRef(new THREE.Vector2(0, 0))
   const target = useRef(new THREE.Vector2(0, 0))
   const { gl } = useThree()
 
-  const { positions, scales, speeds, offsets } = useMemo(() => {
-    const positions = new Float32Array(count * 3)
-    const scales = new Float32Array(count)
-    const speeds = new Float32Array(count)
-    const offsets = new Float32Array(count)
-    for (let i = 0; i < count; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 18
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 10
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 12
-      const r = Math.random()
-      scales[i] = r < 0.9 ? 0.6 + Math.random() * 1.4 : 2.4 + Math.random() * 3.2
-      speeds[i] = 0.4 + Math.random() * 0.9
-      offsets[i] = Math.random() * 100
-    }
-    return { positions, scales, speeds, offsets }
-  }, [count])
+  const { positions, scales, speeds, offsets } = useMemo(() => makeDust(count), [count])
 
   useFrame((state, delta) => {
     if (!mat.current) return

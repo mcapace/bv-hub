@@ -2,20 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Beaulieu Vineyard | A Beautiful Place, Reimagined | Wine Spectator</title>
     <meta name="description" content="A year-long journey through Beaulieu Vineyard, Napa Valley's original Cabernet house, from the de Latours and the Maestro to the reopening of the Rutherford estate. Presented by Beaulieu Vineyard on WineSpectator.com." />
     <meta name="theme-color" content="#060709" />
+    <meta name="color-scheme" content="dark light" />
     <link rel="icon" type="image/png" href="/brand/monogram-gold.png" />
+    <link rel="apple-touch-icon" href="/brand/monogram-gold.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Archivo:ital,wdth,wght@0,100..125,400..600&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet" />
+    <link rel="preload" as="image" href="/img/vineyard-fall-drone.jpg" fetchpriority="high" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Wine Spectator" />
     <meta property="og:title" content="Beaulieu Vineyard | A Beautiful Place, Reimagined" />
     <meta property="og:description" content="Napa Valley's original Cabernet house, reimagined. A Wine Spectator partner feature presented by Beaulieu Vineyard." />
-    <meta property="og:image" content="/img/vineyard-fall-drone.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Beaulieu Vineyard estate at dawn with the headline: A beautiful place, reimagined." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Beaulieu Vineyard | A Beautiful Place, Reimagined" />
+    <meta name="twitter:description" content="Napa Valley's original Cabernet house, reimagined. A Wine Spectator partner feature presented by Beaulieu Vineyard." />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Beaulieu Vineyard: A Beautiful Place, Reimagined",
+        "description": "A Wine Spectator partner feature presented by Beaulieu Vineyard, told in four chapters from November 2026 to June 2027.",
+        "publisher": { "@type": "Organization", "name": "Wine Spectator" },
+        "sponsor": { "@type": "Organization", "name": "Beaulieu Vineyard", "url": "https://www.bvwines.com/" }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <p style="padding: 40px; font-family: Georgia, serif; color: #f8f9f5">
+        Beaulieu Vineyard: A Beautiful Place, Reimagined. A Wine Spectator partner feature. Please enable JavaScript to view this story, or visit
+        <a href="https://www.bvwines.com/" style="color: #dcc48f">bvwines.com</a>.
+      </p>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

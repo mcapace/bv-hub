@@ -2,9 +2,8 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { Suspense, lazy, useRef } from 'react'
 const DustScene = lazy(() => import('./DustScene').then((m) => ({ default: m.DustScene })))
 import { links } from '../content'
+import { canUse3D } from '../lib/device'
 import './hero.css'
-
-const noGL = typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('nogl')
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null)
@@ -20,7 +19,7 @@ export function Hero() {
         <img src="/img/vineyard-fall-drone.jpg" alt="Beaulieu Vineyard estate vineyards in Rutherford at dawn" fetchPriority="high" />
       </motion.div>
       <div className="hero__veil" />
-      {!noGL && (
+      {canUse3D && (
         <Suspense fallback={null}>
           <DustScene className="hero__dust" />
         </Suspense>
@@ -28,7 +27,7 @@ export function Hero() {
 
       <motion.div className="hero__content container" style={{ opacity: fade, y: rise }}>
         <motion.div
-          className="hero__presenter glass glass--pill"
+          className="hero__presenter"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -53,7 +52,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.3, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="script hero__script">Quel beau lieu.</span>
+          <span className="flourish hero__flourish">Quel beau lieu.</span>
           A beautiful place,
           <br />
           <em>reimagined.</em>
@@ -65,7 +64,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          For 125 years, Napa Valley's original Cabernet house has defined what Rutherford can be. Now the estate that
+          For 125 years, Napa Valley’s original Cabernet house has defined what Rutherford can be. Now the estate that
           Georges and Fernande de Latour founded in 1900 opens a new chapter. Over the coming months, Wine Spectator
           tells the story in four parts.
         </motion.p>

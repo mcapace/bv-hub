@@ -27,8 +27,12 @@ npm run build && npm run preview
 Colors come straight from the 2025 BV Brand Guidelines web palette: red #67000D, gold #BC995D, paper #F8F9F5, stone #CEC5BE, charcoal #3B3E3B, ink #141313.
 Logo files in `public/brand/` were cut from the one-color gold logo page of the guidelines.
 
-Typography in this build uses open faces chosen to avoid a stock look: Fraunces (display, variable optical size with SOFT and WONK axes), Newsreader (reading), Archivo at expanded width (labels, standing in for Termina) and Mrs Saint Delafield (script, standing in for Parfumerie Script).
-The brand's licensed faces (Adobe Garamond Pro, Termina, Parfumerie Script) are all on Adobe Fonts. To match exactly at launch, create an Adobe Fonts web project with those three, drop its `<link>` into `index.html`, and point the `--font-*` tokens at them.
+Typography is a single Garamond lineage, in keeping with the brand's Adobe Garamond Pro: Cormorant Garamond for display (with its true italic used for accents) and EB Garamond for reading, with labels, nav and buttons set in true small caps (`.caps`, `.eyebrow`). There is deliberately no script face; the only script on the page is the BV logo.
+To use the licensed Adobe Garamond Pro at launch, add an Adobe Fonts web project `<link>` to `index.html` and point `--font-display`, `--font-serif` and `--font-caps` at it.
+
+## Deploy settings
+
+Set `VITE_SITE_URL` (for example `https://bv.winespectator.com`, no trailing slash) in each Vercel environment. It makes the share image URL absolute and adds the canonical and `og:url` tags. The share image itself is `public/og-image.jpg` (1200 x 630).
 
 ## Content to confirm with BV before launch
 
@@ -40,9 +44,13 @@ The brand's licensed faces (Adobe Garamond Pro, Termina, Parfumerie Script) are 
 
 - `src/content.ts`: all copy, chapters, timeline entries, wines, experiences, links
 - `src/components/DustScene.tsx`: hero particle shader
-- `src/components/BottleScene.tsx`: 3D bottle showcase
+- `src/components/BottleScene.tsx`: 3D bottle showcase; `BottleRow.tsx` is the lightweight version shown while it loads and on devices that skip 3D
+- `src/lib/device.ts`: decides when to skip the WebGL scenes (reduced motion, data saver, low memory or cores, no WebGL, or `?nogl` in the URL)
+- `src/components/TimelineStory.tsx`: full-screen story view opened from a timeline card
+- `src/hooks/useOverlay.ts`: scroll lock, focus trap and Escape handling shared by the menu and story view
+- `src/hooks/useActiveChapter.ts`: drives the nav highlight from `data-chapter` attributes on each section
 - `public/img`, `public/bottles`: optimized imagery pulled from the Treasury Widen links and Dropbox folder
 
 ## Chapter rollout
 
-Chapter status is set in `src/content.ts` (`live`, `next`, `upcoming`). To open a chapter, flip its status, add its section component to `App.tsx`, and point the chapter card anchor at it.
+Chapter status is set in `src/content.ts` (`live`, `next`, `upcoming`). To open a chapter, flip its status, add its section component to `App.tsx` with `id="chapter-N"` and `data-chapter="N"`, and point the chapter card anchor at it.

@@ -18,7 +18,7 @@ function Parallax({ src, alt, from = 40, to = -40, className = '' }: { src: stri
 
 export function Story() {
   return (
-    <section className="section section--paper story" id="chapter-1">
+    <section className="section section--paper story" id="chapter-1" data-chapter="1">
       <div className="container">
         <Reveal className="story__head">
           <span className="eyebrow">Chapter I &nbsp;·&nbsp; Anticipation</span>
@@ -37,30 +37,30 @@ export function Story() {
             <Reveal className="body dropcap">
               <p>
                 Fernande de Latour took one look at the Rutherford expanse where the winery sits today and exclaimed{' '}
-                <em>"Quel beau lieu"</em>, what a beautiful place. Georges sold his thriving business, bought a four-acre
+                <em>“Quel beau lieu,”</em> what a beautiful place. Georges sold his thriving business, bought a four-acre
                 ranch, and founded Beaulieu Vineyard with the ambition of making wines that would rival those of their
                 homeland. With Georges as general manager and Fernande as director, they joined the earliest ranks of
-                California's winemaking pioneers: Krug, Niebaum, Beringer, Yount.
+                California’s winemaking pioneers: Krug, Niebaum, Beringer, Yount.
               </p>
               <p>
                 Before the region had a formal identity, BV championed the importance of place, labeling Rutherford
                 Cabernet Sauvignon as early as 1919, decades ahead of appellation recognition. When phylloxera ravaged
-                California's vineyards, Georges imported disease-resistant rootstock from Europe and shared it with his
+                California’s vineyards, Georges imported disease-resistant rootstock from Europe and shared it with his
                 neighbors, strengthening the future of the valley as a whole.
               </p>
             </Reveal>
 
             <Reveal className="story__quote glass glass--light" delay={0.1}>
-              <span className="script story__quote-mark">"</span>
+              <span className="story__quote-mark" aria-hidden>“</span>
               <blockquote>
-                Fernande's foresight kept BV open through Prohibition. Sacramental wine for the Catholic Church made it one
+                Fernande’s foresight kept BV open through Prohibition. Sacramental wine for the Catholic Church made it one
                 of the only Napa wineries to stay in production, and production grew fourfold.
               </blockquote>
             </Reveal>
 
             <Reveal className="body" delay={0.05}>
               <p>
-                Upon Georges' death in 1940 the board immediately named Fernande president. She was the only female
+                Upon Georges’ death in 1940 the board immediately named Fernande president. She was the only female
                 founding member of the Napa Valley Vintners, an honorary director of the Wine Institute, and the woman
                 who organized an influential tasting of BV wines in Paris long before the Judgment of Paris. She visited
                 the King and Queen at Buckingham Palace, and the Private Reserve would soon be poured for them.

@@ -9,7 +9,7 @@ export function Maestro() {
   const y = useTransform(scrollYProgress, [0, 1], ['-8%', '8%'])
 
   return (
-    <section ref={ref} className="maestro">
+    <section ref={ref} className="maestro" data-chapter="1">
       <motion.div className="maestro__bg" style={{ y }}>
         <img src="/img/andre-barrel-room.jpg" alt="André Tchelistcheff tasting from a barrel in the Beaulieu Vineyard cellar" loading="lazy" />
       </motion.div>
@@ -32,10 +32,10 @@ export function Maestro() {
           </p>
           <p>
             He gave the signature cocoa-powder tannin of the western bench its name, <em>Rutherford Dust</em>, and
-            mentored a generation that included Mondavi, Martini, Winiarski and Grgich. He led BV's winemaking until
+            mentored a generation that included Mondavi, Martini, Winiarski and Grgich. He led BV’s winemaking until
             1971 and returned at 89 to help reinvent it for a new era.
           </p>
-          <span className="maestro__note eyebrow eyebrow--muted">Chapter III, "Tchelistcheff's Legacy," arrives in March</span>
+          <span className="maestro__note eyebrow eyebrow--muted">Chapter III, “Tchelistcheff’s Legacy,” arrives in March</span>
         </Reveal>
       </div>
     </section>
