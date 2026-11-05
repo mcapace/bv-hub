@@ -68,7 +68,7 @@
   font-family: var(--font-display);
   font-weight: 300;
   font-variant-numeric: lining-nums;
-  font-size: clamp(44px, 4.4vw, 68px);
+  font-size: clamp(38px, 3.8vw, 58px);
   line-height: 1;
   color: var(--bv-red);
 }

@@ -194,7 +194,7 @@
 .tl-card--text .tl-card__year {
   font-style: normal;
   font-weight: 300;
-  font-size: 76px;
+  font-size: 62px;
   letter-spacing: -0.01em;
   color: var(--bv-gold-light);
   margin-bottom: 8px;
@@ -203,7 +203,7 @@
   margin: 0;
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: 30px;
+  font-size: 25px;
   line-height: 1.08;
 }
 .tl-card__body p {
@@ -223,7 +223,7 @@
   padding-left: 20px;
 }
 .timeline__end .flourish {
-  font-size: 52px;
+  font-size: 42px;
 }
 
 .timeline__rail {

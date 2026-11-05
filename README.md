@@ -27,7 +27,7 @@ npm run build && npm run preview
 Colors come straight from the 2025 BV Brand Guidelines web palette: red #67000D, gold #BC995D, paper #F8F9F5, stone #CEC5BE, charcoal #3B3E3B, ink #141313.
 Logo files in `public/brand/` were cut from the one-color gold logo page of the guidelines.
 
-Typography is a single Garamond lineage, in keeping with the brand's Adobe Garamond Pro: Cormorant Garamond for display (with its true italic used for accents) and EB Garamond for reading, with labels, nav and buttons set in true small caps (`.caps`, `.eyebrow`). There is deliberately no script face; the only script on the page is the BV logo.
+Typography is a single family, Ibarra Real Nova (a revival of the 1780 Ibarra type), chosen over the usual luxury-template serifs: roman and italic for headlines and reading, small caps for labels, nav and buttons (`.caps`, `.eyebrow`). There is deliberately no script face; the only script on the page is the BV logo.
 To use the licensed Adobe Garamond Pro at launch, add an Adobe Fonts web project `<link>` to `index.html` and point `--font-display`, `--font-serif` and `--font-caps` at it.
 
 ## Deploy settings

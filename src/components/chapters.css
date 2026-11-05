@@ -21,9 +21,9 @@
 .chapter-card__link {
   display: block;
   position: relative;
-  border-radius: 22px;
+  border-radius: 14px;
   overflow: hidden;
-  aspect-ratio: 3 / 5;
+  aspect-ratio: 3 / 4.6;
   isolation: isolate;
   transform: translateZ(0);
 }
@@ -48,21 +48,44 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(6, 7, 9, 0.1), rgba(6, 7, 9, 0.75) 70%);
+  background: linear-gradient(180deg, rgba(6, 7, 9, 0) 30%, rgba(6, 7, 9, 0.55) 55%, rgba(6, 7, 9, 0.94) 100%);
 }
 
-.chapter-card__body {
+/* Text sits directly on the photograph's gradient, without a boxed panel */
+.chapter-card__body.glass {
   position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: 12px;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 1;
-  padding: 20px 20px 18px;
-  border-radius: 16px;
+  padding: 26px 24px 24px;
   display: grid;
   gap: 6px;
-  --glass-bg: rgba(6, 7, 9, 0.38);
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  overflow: visible;
   transition: transform 0.8s var(--ease);
+}
+.chapter-card__body.glass::before {
+  display: none;
+}
+.chapter-card__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(188, 153, 93, 0.22);
+  pointer-events: none;
+  transition: box-shadow 0.5s;
+}
+.chapter-card--live .chapter-card__link::after,
+.chapter-card__link:hover::after {
+  box-shadow: inset 0 0 0 1px rgba(188, 153, 93, 0.65);
 }
 .chapter-card__link:hover .chapter-card__body {
   transform: translateY(-4px);
@@ -76,7 +99,7 @@
 .chapter-card__num {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 30px;
+  font-size: 26px;
   color: var(--bv-gold);
   line-height: 1;
 }
@@ -88,7 +111,10 @@
   letter-spacing: 0.12em;
   padding: 5px 11px 7px;
   border-radius: 999px;
-  border: 1px solid rgba(188, 153, 93, 0.35);
+  border: 1px solid rgba(188, 153, 93, 0.45);
+  background: rgba(6, 7, 9, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   color: var(--bv-gold-light);
 }
 .chapter-card__status--live {
@@ -97,12 +123,12 @@
   color: var(--bv-paper);
 }
 .chapter-card__status--upcoming {
-  color: rgba(248, 249, 245, 0.6);
-  border-color: rgba(248, 249, 245, 0.2);
+  color: rgba(248, 249, 245, 0.82);
+  border-color: rgba(248, 249, 245, 0.3);
 }
 
 .chapter-card__body h3 {
-  font-size: clamp(26px, 2vw, 32px);
+  font-size: clamp(23px, 1.75vw, 28px);
   font-weight: 500;
 }
 .chapter-card__feature {
@@ -111,8 +137,12 @@
   font-size: 17px;
 }
 .chapter-card__body p {
-  margin: 4px 0 0;
-  font-size: 15.5px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 6px 0 0;
+  font-size: 16px;
   line-height: 1.45;
   color: rgba(248, 249, 245, 0.78);
 }

@@ -27,8 +27,12 @@
   transition: background 0.4s;
 }
 .nav--scrolled .nav__inner {
-  --glass-bg: rgba(6, 7, 9, 0.82);
+  --glass-bg: rgba(8, 7, 8, 0.95);
+  --glass-blur: 28px;
   border-color: rgba(188, 153, 93, 0.3);
+}
+.nav--scrolled .nav__inner::before {
+  opacity: 0.35;
 }
 
 .nav__brand {

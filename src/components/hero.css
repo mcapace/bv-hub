@@ -27,7 +27,7 @@
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(90deg, rgba(6, 7, 9, 0.72) 0%, rgba(6, 7, 9, 0.38) 42%, rgba(6, 7, 9, 0.05) 75%),
+    linear-gradient(90deg, rgba(6, 7, 9, 0.8) 0%, rgba(6, 7, 9, 0.45) 42%, rgba(6, 7, 9, 0.05) 75%),
     linear-gradient(180deg, rgba(6, 7, 9, 0.6) 0%, rgba(6, 7, 9, 0.15) 30%, rgba(6, 7, 9, 0.5) 62%, rgba(6, 7, 9, 0.97) 100%),
     radial-gradient(80% 60% at 50% 100%, rgba(103, 0, 13, 0.45), transparent 70%);
 }
@@ -64,6 +64,10 @@
 }
 .hero__presenter .eyebrow {
   font-size: 15px;
+  text-shadow: 0 1px 12px rgba(6, 7, 9, 0.9);
+}
+.hero__presenter .eyebrow:not(.eyebrow--muted) {
+  color: var(--bv-gold-light);
 }
 .hero__dot {
   width: 4px;

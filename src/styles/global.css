@@ -13,13 +13,12 @@
   --bv-ink: #141313;
   --bv-night: #060709;
 
-  /* A single Garamond lineage, matching the brand's Adobe Garamond Pro.
-     Display: Cormorant Garamond, cut for large sizes with fine hairlines and a true italic.
-     Reading and labels: EB Garamond, set in true small caps for eyebrows, nav and buttons.
+  /* Ibarra Real Nova, a revival of the 1780 Ibarra type, carries the whole page:
+     roman and italic for headlines and reading, small caps for eyebrows, nav and buttons.
      The only script on the page is the BV logo itself. */
-  --font-display: 'Cormorant Garamond', 'Adobe Garamond Pro', Garamond, Georgia, serif;
-  --font-serif: 'EB Garamond', 'Adobe Garamond Pro', Garamond, Georgia, serif;
-  --font-caps: 'EB Garamond', 'Adobe Garamond Pro', Garamond, Georgia, serif;
+  --font-display: 'Ibarra Real Nova', 'Adobe Garamond Pro', Georgia, serif;
+  --font-serif: 'Ibarra Real Nova', 'Adobe Garamond Pro', Georgia, serif;
+  --font-caps: 'Ibarra Real Nova', 'Adobe Garamond Pro', Georgia, serif;
 
   --glass-bg: rgba(255, 255, 255, 0.06);
   --glass-border: rgba(220, 196, 143, 0.22);
@@ -58,8 +57,8 @@ body {
   background: var(--bv-night);
   color: var(--bv-paper);
   font-family: var(--font-serif);
-  font-size: 20px;
-  line-height: 1.6;
+  font-size: 19px;
+  line-height: 1.62;
   font-variant-numeric: oldstyle-nums proportional-nums;
   font-kerning: normal;
   font-feature-settings: 'kern', 'liga', 'clig', 'calt';
@@ -115,8 +114,8 @@ button {
 .display {
   font-family: var(--font-display);
   font-weight: 400;
-  line-height: 0.96;
-  letter-spacing: -0.012em;
+  line-height: 1.02;
+  letter-spacing: -0.018em;
   margin: 0;
   font-variant-numeric: lining-nums;
   text-wrap: balance;
@@ -129,15 +128,15 @@ button {
 }
 
 .display--xl {
-  font-size: clamp(50px, 7.8vw, 124px);
-  font-weight: 300;
+  font-size: clamp(44px, 6.6vw, 104px);
+  line-height: 0.98;
 }
 .display--lg {
-  font-size: clamp(40px, 5.4vw, 80px);
+  font-size: clamp(36px, 4.6vw, 68px);
 }
 .display--md {
-  font-size: clamp(30px, 3.4vw, 50px);
-  line-height: 1.02;
+  font-size: clamp(27px, 2.9vw, 42px);
+  line-height: 1.06;
 }
 
 /* An italic flourish in place of a script face */

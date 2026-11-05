@@ -201,8 +201,8 @@
   margin: 0;
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: 30px;
-  line-height: 1.08;
+  font-size: 25px;
+  line-height: 1.12;
 }
 .visit__exp-meta {
   display: inline-flex;
