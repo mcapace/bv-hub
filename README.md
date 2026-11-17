@@ -54,3 +54,10 @@ Set `VITE_SITE_URL` (for example `https://bv.winespectator.com`, no trailing sla
 ## Chapter rollout
 
 Chapter status is set in `src/content.ts` (`live`, `next`, `upcoming`). To open a chapter, flip its status, add its section component to `App.tsx` with `id="chapter-N"` and `data-chapter="N"`, and point the chapter card anchor at it.
+
+## Client round one (Nov 17, 2026)
+
+Applied from the BV edits memo: light palette (white, gold, BV red) replacing the dark theme, new hero photo of the
+restored winery, square BV favicon, Chapter I renamed The Origin with new card photos, headline and copy edits in
+the story, timeline and Maestro sections, full wine names with the grand cru phrase removed, and the winemaker list
+trimmed. The 3D bottle stage now reflects on a light floor.
