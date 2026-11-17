@@ -1,6 +1,15 @@
 .footer {
-  background: var(--bv-night);
+  background:
+    radial-gradient(70% 60% at 100% 100%, rgba(188, 153, 93, 0.22), transparent 60%),
+    var(--bv-red);
+  color: var(--bv-paper);
   padding: 0 0 36px;
+}
+.footer .rule {
+  opacity: 0.8;
+}
+.footer .eyebrow--muted {
+  color: var(--bv-gold-light);
 }
 .footer__inner {
   display: grid;
@@ -15,7 +24,7 @@
 .footer__brand p {
   margin: 18px 0 0;
   font-size: 15px;
-  color: var(--bv-stone);
+  color: rgba(248, 249, 245, 0.8);
 }
 .footer__links {
   display: grid;
@@ -26,7 +35,7 @@
   font-variation-settings: 'wdth' 120;
   font-size: 12px;
   letter-spacing: 0.24em;
-  color: rgba(248, 249, 245, 0.75);
+  color: rgba(248, 249, 245, 0.85);
 }
 .footer__links a:hover {
   color: var(--bv-gold-light);
@@ -40,7 +49,7 @@
   margin: 0;
   font-size: 14px;
   line-height: 1.55;
-  color: var(--bv-stone);
+  color: rgba(248, 249, 245, 0.8);
 }
 .footer__wsmark {
   font-family: var(--font-display);
@@ -57,9 +66,9 @@
   font-variation-settings: 'wdth' 120;
   font-size: 10.5px;
   letter-spacing: 0.2em;
-  color: rgba(248, 249, 245, 0.45);
+  color: rgba(248, 249, 245, 0.6);
   padding-top: 24px;
-  border-top: 1px solid rgba(248, 249, 245, 0.08);
+  border-top: 1px solid rgba(248, 249, 245, 0.18);
 }
 
 @media (max-width: 860px) {

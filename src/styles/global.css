@@ -23,10 +23,13 @@
   --font-caps: 'Archivo', 'Termina', 'Helvetica Neue', Arial, sans-serif;
   --font-script: 'Ballet', 'Parfumerie Script', cursive;
 
-  --glass-bg: rgba(255, 255, 255, 0.06);
-  --glass-border: rgba(220, 196, 143, 0.22);
-  --glass-highlight: rgba(255, 255, 255, 0.18);
+  /* Light glass by default: white panels with a gold hairline */
+  --glass-bg: rgba(255, 255, 255, 0.62);
+  --glass-border: rgba(188, 153, 93, 0.35);
+  --glass-highlight: rgba(255, 255, 255, 0.95);
   --glass-blur: 22px;
+  --ink-soft: rgba(20, 19, 19, 0.76);
+  --ink-muted: rgba(20, 19, 19, 0.55);
 
   --max: 1320px;
   --gutter: clamp(20px, 5vw, 72px);
@@ -57,8 +60,8 @@ html.lenis body {
 
 body {
   margin: 0;
-  background: var(--bv-night);
-  color: var(--bv-paper);
+  background: var(--bv-paper);
+  color: var(--bv-ink);
   font-family: var(--font-serif);
   font-size: 18px;
   line-height: 1.62;
@@ -90,8 +93,8 @@ button {
 }
 
 ::selection {
-  background: var(--bv-gold);
-  color: var(--bv-night);
+  background: var(--bv-red);
+  color: var(--bv-paper);
 }
 
 /* ---------- Typography ---------- */
@@ -109,7 +112,7 @@ button {
 .eyebrow {
   font-size: 10.5px;
   line-height: 1.5;
-  color: var(--bv-gold);
+  color: var(--bv-red);
 }
 
 em,
@@ -118,8 +121,8 @@ i {
 }
 
 .eyebrow--muted {
-  color: var(--bv-stone);
-  opacity: 0.8;
+  color: var(--ink-muted);
+  opacity: 1;
 }
 
 .display {
@@ -138,6 +141,11 @@ i {
   font-weight: 300;
   letter-spacing: -0.005em;
   font-variation-settings: 'opsz' 144, 'SOFT' 60, 'WONK' 1;
+  color: var(--bv-red);
+}
+.section--red .display em,
+.glass--dark .display em {
+  color: var(--bv-gold-light);
 }
 
 .display--xl {
@@ -160,7 +168,7 @@ i {
   font-variation-settings: 'opsz' 72;
   letter-spacing: 0;
   line-height: 1;
-  color: var(--bv-gold-light);
+  color: var(--bv-red);
 }
 
 .lede {
@@ -168,7 +176,7 @@ i {
   line-height: 1.5;
   font-weight: 350;
   font-variation-settings: 'opsz' 30, 'SOFT' 60, 'WONK' 0;
-  color: rgba(248, 249, 245, 0.84);
+  color: var(--ink-soft);
   text-wrap: pretty;
 }
 
@@ -228,9 +236,20 @@ i {
 }
 
 .section--burgundy {
+  /* now a warm light section: pale gold wash over paper, with a soft red bloom */
   background:
-    radial-gradient(120% 80% at 50% 0%, rgba(103, 0, 13, 0.55), transparent 60%),
-    linear-gradient(180deg, #1a0205 0%, var(--bv-night) 100%);
+    radial-gradient(80% 60% at 100% 0%, rgba(188, 153, 93, 0.22), transparent 60%),
+    radial-gradient(60% 50% at 0% 100%, rgba(103, 0, 13, 0.08), transparent 60%),
+    linear-gradient(180deg, var(--bv-paper-warm) 0%, var(--bv-paper) 100%);
+}
+.section--cream {
+  background: linear-gradient(180deg, var(--bv-gold-pale) 0%, var(--bv-paper-warm) 100%);
+}
+.section--red {
+  background:
+    radial-gradient(80% 60% at 100% 100%, rgba(188, 153, 93, 0.25), transparent 60%),
+    var(--bv-red);
+  color: var(--bv-paper);
 }
 
 /* ---------- Glass ---------- */
@@ -242,7 +261,7 @@ i {
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
   border-radius: 20px;
   box-shadow:
-    0 30px 80px -30px rgba(0, 0, 0, 0.7),
+    0 30px 60px -32px rgba(60, 30, 20, 0.25),
     inset 0 1px 0 var(--glass-highlight);
   overflow: hidden;
 }
@@ -253,8 +272,14 @@ i {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, transparent 38%),
-    radial-gradient(60% 40% at 100% 0%, rgba(188, 153, 93, 0.18), transparent 70%);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, transparent 40%),
+    radial-gradient(60% 40% at 100% 0%, rgba(188, 153, 93, 0.14), transparent 70%);
+}
+.glass--dark {
+  --glass-bg: rgba(6, 7, 9, 0.5);
+  --glass-border: rgba(220, 196, 143, 0.28);
+  --glass-highlight: rgba(255, 255, 255, 0.18);
+  color: var(--bv-paper);
 }
 
 .glass--light {
@@ -286,9 +311,9 @@ i {
   letter-spacing: 0.24em;
   padding: 17px 28px;
   border-radius: 999px;
-  border: 1px solid var(--bv-gold);
-  color: var(--bv-gold-light);
-  background: rgba(188, 153, 93, 0.08);
+  border: 1px solid var(--bv-red);
+  color: var(--bv-red);
+  background: rgba(103, 0, 13, 0.04);
   transition:
     transform 0.5s var(--ease),
     background 0.4s,
@@ -305,10 +330,10 @@ i {
   }
 }
 .btn:hover {
-  background: var(--bv-gold);
-  color: var(--bv-night);
+  background: var(--bv-red);
+  color: var(--bv-paper);
   transform: translateY(-2px);
-  box-shadow: 0 18px 40px -16px rgba(188, 153, 93, 0.6);
+  box-shadow: 0 18px 40px -16px rgba(103, 0, 13, 0.5);
 }
 
 .btn--solid {
@@ -323,18 +348,23 @@ i {
 }
 
 .btn--ghost {
-  border-color: rgba(248, 249, 245, 0.28);
-  color: var(--bv-paper);
-  background: transparent;
-}
-
-.section--paper .btn--ghost {
   border-color: rgba(20, 19, 19, 0.25);
   color: var(--bv-ink);
+  background: transparent;
 }
-.section--paper .btn--ghost:hover {
+.btn--ghost:hover {
   background: var(--bv-ink);
+  border-color: var(--bv-ink);
   color: var(--bv-paper);
+}
+.section--red .btn,
+.section--red .btn--ghost {
+  border-color: rgba(248, 249, 245, 0.5);
+  color: var(--bv-paper);
+}
+.section--red .btn:hover {
+  background: var(--bv-paper);
+  color: var(--bv-red);
 }
 
 .btn svg {
@@ -380,13 +410,13 @@ i {
   font-style: italic;
   font-size: 15px;
   letter-spacing: 0.01em;
-  color: var(--bv-stone);
+  color: var(--ink-muted);
   margin-top: 14px;
   opacity: 0.9;
 }
 
 :focus-visible {
-  outline: 1px solid var(--bv-gold-light);
+  outline: 2px solid var(--bv-red);
   outline-offset: 4px;
   border-radius: 6px;
 }

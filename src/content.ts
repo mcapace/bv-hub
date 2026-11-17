@@ -36,11 +36,11 @@ export const chapters: Chapter[] = [
   {
     number: 'I',
     slug: 'anticipation',
-    title: 'Anticipation',
+    title: 'The Origin',
     window: 'November to December 2026',
-    feature: 'The House That Latour Built',
+    feature: 'The House That de Latour Built',
     summary: 'Three words, a four-acre ranch, and a conviction that Rutherford could rival the great estates of France.',
-    image: '/img/georges-de-latour.jpg',
+    image: '/img/vineyard-sign-drone.jpg',
     status: 'live',
   },
   {
@@ -60,7 +60,7 @@ export const chapters: Chapter[] = [
     window: 'March to April 2027',
     feature: "Tchelistcheff’s Legacy",
     summary: 'A ratings retrospective from the Wine Spectator archive, a photo essay, and a planner for your visit.',
-    image: '/img/andre-barrel-room.jpg',
+    image: '/img/harvest22.jpg',
     status: 'upcoming',
   },
   {
@@ -86,7 +86,7 @@ export const timeline: TimelineEntry[] = [
   {
     year: '1900',
     title: 'Quel beau lieu',
-    text: 'On May 12, Georges and Fernande de Latour buy four acres in Rutherford. Fernande names it with three words: “What a beautiful place.”',
+    text: 'On May 12, Georges and Fernande de Latour buy four acres in Rutherford. Fernande names it with three words meaning: “What a Beautiful Place.”',
     image: '/img/georges-de-latour.jpg',
   },
   {
@@ -103,13 +103,13 @@ export const timeline: TimelineEntry[] = [
   {
     year: '1920s',
     title: 'Open through Prohibition',
-    text: 'Sacramental wine for the Catholic Church keeps BV producing through thirteen dry years. In 1923 the de Latours buy the neighboring 1885 stone winery, still home today.',
+    text: 'Sacramental wine for the Catholic Church keeps BV producing through thirteen dry years. In 1923 the de Latours buy the neighboring 1885 stone winery, still its home today.',
     image: '/img/winery-exterior-archive.jpg',
   },
   {
     year: '1938',
     title: 'The Maestro arrives',
-    text: 'Georges recruits André Tchelistcheff from the Pasteur Institute in Paris. He brings a microscope, a laboratory, and a philosophy of structure and age-worthiness.',
+    text: 'Georges recruits André Tchelistcheff from the Pasteur Institute in Paris. He brings a microscope, a laboratory, and a winemaking philosophy rooted in structure and age-worthiness.',
     image: '/img/andre-lab.jpg',
   },
   {
@@ -169,11 +169,11 @@ export interface Wine {
 export const wines: Wine[] = [
   {
     id: 'gdl',
-    name: 'Georges de Latour Private Reserve',
-    short: 'Private Reserve',
+    name: 'Georges de Latour Private Reserve Cabernet Sauvignon',
+    short: 'Georges de Latour Private Reserve',
     srp: '$180',
     image: '/bottles/bottle-gdl.png',
-    tagline: "Napa Valley’s first grand cru",
+    tagline: "Napa Valley’s first cult Cabernet",
     description:
       'Hand-selected from BV Ranches No. 1 and No. 2 on the western Rutherford bench, a portion fermented in new French oak for density and texture. Bold, complex, and marked by the cocoa-powder note the Maestro called Rutherford Dust.',
     accolade: '2021 vintage: No. 2, Wine Spectator Top 100',
@@ -181,7 +181,7 @@ export const wines: Wine[] = [
   {
     id: 'rutherford',
     name: 'Rutherford Reserve Cabernet Sauvignon',
-    short: 'Rutherford Reserve',
+    short: 'Rutherford Reserve Cabernet Sauvignon',
     srp: '$85',
     image: '/bottles/bottle-rutherford-res.png',
     tagline: 'A tribute to the western bench',
@@ -191,7 +191,7 @@ export const wines: Wine[] = [
   {
     id: 'tapestry',
     name: 'Tapestry Reserve Red Wine',
-    short: 'Tapestry',
+    short: 'Tapestry Reserve Red Wine',
     srp: '$65',
     image: '/bottles/bottle-tapestry.png',
     tagline: 'A nod to Bordeaux, since 1990',
@@ -201,7 +201,7 @@ export const wines: Wine[] = [
   {
     id: 'napa-cab',
     name: 'Napa Valley Cabernet Sauvignon',
-    short: 'Napa Valley Cabernet',
+    short: 'Napa Valley Cabernet Sauvignon',
     srp: '$40',
     image: '/bottles/bottle-nv-cab.png',
     tagline: 'Rutherford, Calistoga, St. Helena',
@@ -212,7 +212,7 @@ export const wines: Wine[] = [
   {
     id: 'napa-sb',
     name: 'Napa Valley Sauvignon Blanc',
-    short: 'Sauvignon Blanc',
+    short: 'Napa Valley Sauvignon Blanc',
     srp: '$40',
     image: '/bottles/bottle-nv-sb.png',
     tagline: 'Rutherford and Oakville, since 2023',

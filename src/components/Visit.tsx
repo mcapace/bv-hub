@@ -45,7 +45,7 @@ export function Visit() {
               </div>
               <div>
                 <dt className="eyebrow eyebrow--muted">Winemakers</dt>
-                <dd>Nate Weis, Megan Twitchell, Lindsey Mongan</dd>
+                <dd>Nate Weis, Megan Twitchell</dd>
               </div>
             </dl>
             <div className="visit__facts-ctas">

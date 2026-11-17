@@ -80,14 +80,14 @@ function Floor() {
         blur={[400, 120]}
         resolution={res}
         mixBlur={1}
-        mixStrength={18}
-        roughness={0.9}
+        mixStrength={6}
+        roughness={0.95}
         depthScale={1.1}
         minDepthThreshold={0.4}
         maxDepthThreshold={1.4}
-        color="#0a0708"
-        metalness={0.4}
-        mirror={0.6}
+        color="#efe8dc"
+        metalness={0.2}
+        mirror={0.45}
       />
     </mesh>
   )
@@ -102,9 +102,9 @@ export function BottleScene({ wines, selected, onSelect }: { wines: Wine[]; sele
       style={{ position: 'absolute', inset: 0 }}
       onPointerMissed={() => undefined}
     >
-      <ambientLight intensity={1.1} />
-      <spotLight position={[4, 6, 6]} intensity={40} angle={0.5} penumbra={1} color="#f6ebd8" />
-      <pointLight position={[-5, 2, 3]} intensity={12} color="#bc995d" />
+      <ambientLight intensity={1.6} />
+      <spotLight position={[4, 6, 6]} intensity={30} angle={0.5} penumbra={1} color="#ffffff" />
+      <pointLight position={[-5, 2, 3]} intensity={8} color="#bc995d" />
       <Suspense fallback={null}>
         <Rig selectedIndex={Math.max(0, wines.findIndex((w) => w.id === selected))} total={wines.length}>
           {wines.map((w, i) => (
@@ -113,7 +113,7 @@ export function BottleScene({ wines, selected, onSelect }: { wines: Wine[]; sele
           <Floor />
         </Rig>
       </Suspense>
-      <fog attach="fog" args={['#060709', 9, 16]} />
+      <fog attach="fog" args={['#f6ebd8', 9, 16]} />
     </Canvas>
   )
 }

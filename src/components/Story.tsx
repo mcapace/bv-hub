@@ -21,14 +21,14 @@ export function Story() {
     <section className="section section--paper story" id="chapter-1" data-chapter="1">
       <div className="container">
         <Reveal className="story__head">
-          <span className="eyebrow">Chapter I &nbsp;·&nbsp; Anticipation</span>
+          <span className="eyebrow">Chapter I &nbsp;·&nbsp; The Origin</span>
           <h2 className="display display--xl">
             The House <br />
-            That Latour Built
+            That de Latour Built
           </h2>
           <p className="lede">
             In 1900 Napa Valley was planted to walnuts and prunes. A French immigrant with a cream of tartar business
-            and his wife, who could name a place in three words, saw something else.
+            and his wife saw something else.
           </p>
         </Reveal>
 
@@ -61,9 +61,10 @@ export function Story() {
             <Reveal className="body" delay={0.05}>
               <p>
                 Upon Georges’ death in 1940 the board immediately named Fernande president. She was the only female
-                founding member of the Napa Valley Vintners, an honorary director of the Wine Institute, and the woman
-                who organized an influential tasting of BV wines in Paris long before the Judgment of Paris. She visited
-                the King and Queen at Buckingham Palace, and the Private Reserve would soon be poured for them.
+                founding member of the Napa Valley Vintners, an honorary director of the Wine Institute, and organized
+                an influential tasting of BV wines in Paris long before the Judgment of Paris. Under her leadership the
+                Georges de Latour Private Reserve was poured for dignitaries like Queen Elizabeth II, Prince Philip and
+                President Harry Truman.
               </p>
               <p>
                 Across more than a century, BV has evolved while staying grounded in balance, structure and longevity.
@@ -81,14 +82,14 @@ export function Story() {
           <div className="story__col story__col--media">
             <Reveal>
               <figure className="story__figure">
-                <Parallax src="/img/georges-de-latour.jpg" alt="Portrait of Georges de Latour" />
-                <figcaption className="caption">Georges de Latour, founder</figcaption>
+                <Parallax src="/img/vineyard-workers-picnic.jpg" alt="Vineyard workers at a picnic in the early days of Beaulieu Vineyard" from={30} to={-40} className="story__img--wide" />
+                <figcaption className="caption">Vineyard crew, BV Ranch, early 1900s</figcaption>
               </figure>
             </Reveal>
             <Reveal delay={0.1}>
-              <figure className="story__figure story__figure--offset">
-                <Parallax src="/img/vineyard-workers-picnic.jpg" alt="Vineyard workers at a picnic in the early days of Beaulieu Vineyard" from={30} to={-50} />
-                <figcaption className="caption">Vineyard crew, BV Ranch, early 1900s</figcaption>
+              <figure className="story__figure story__figure--small">
+                <Parallax src="/img/georges-de-latour.jpg" alt="Portrait of Georges de Latour" from={20} to={-30} className="story__img--portrait" />
+                <figcaption className="caption">Georges de Latour, founder</figcaption>
               </figure>
             </Reveal>
           </div>

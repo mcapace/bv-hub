@@ -16,7 +16,7 @@ export function Hero() {
   return (
     <section ref={ref} className="hero" id="top">
       <motion.div className="hero__media" style={{ y: imgY, scale: imgScale }}>
-        <img src="/img/vineyard-fall-drone.jpg" alt="Beaulieu Vineyard estate vineyards in Rutherford at dawn" fetchPriority="high" />
+        <img src="/img/winery-new-space.jpg" alt="The restored 1885 stone winery and new glass atrium at Beaulieu Vineyard at dusk" fetchPriority="high" />
       </motion.div>
       <div className="hero__veil" />
       {canUse3D && (
@@ -26,6 +26,7 @@ export function Hero() {
       )}
 
       <motion.div className="hero__content container" style={{ opacity: fade, y: rise }}>
+        <div className="hero__panel glass glass--light">
         <motion.div
           className="hero__presenter"
           initial={{ opacity: 0, y: 16 }}
@@ -82,6 +83,7 @@ export function Hero() {
             Plan a visit
           </a>
         </motion.div>
+        </div>
       </motion.div>
 
       <div className="hero__scroll" aria-hidden>

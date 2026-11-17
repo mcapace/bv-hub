@@ -1,7 +1,7 @@
 .timeline {
   background:
-    radial-gradient(70% 50% at 0% 100%, rgba(103, 0, 13, 0.35), transparent 70%),
-    var(--bv-night);
+    radial-gradient(70% 50% at 0% 100%, rgba(188, 153, 93, 0.18), transparent 70%),
+    var(--bv-paper-warm);
   overflow: hidden;
 }
 
@@ -17,7 +17,7 @@
 }
 .timeline__head em {
   font-style: italic;
-  color: var(--bv-gold-light);
+  color: var(--bv-red);
 }
 .timeline__controls {
   display: flex;
@@ -27,15 +27,16 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  border: 1px solid rgba(188, 153, 93, 0.4);
-  color: var(--bv-gold-light);
+  border: 1px solid rgba(103, 0, 13, 0.35);
+  color: var(--bv-red);
+  background: rgba(255, 255, 255, 0.5);
   display: grid;
   place-items: center;
   transition: background 0.3s, color 0.3s, transform 0.4s var(--ease);
 }
 .tl-btn:hover:not(:disabled) {
-  background: var(--bv-gold);
-  color: var(--bv-night);
+  background: var(--bv-red);
+  color: var(--bv-paper);
   transform: translateY(-2px);
 }
 .tl-btn:disabled {
@@ -50,7 +51,7 @@
   margin: 14px 0 0;
   font-style: italic;
   font-size: 16px;
-  color: var(--bv-stone);
+  color: var(--ink-muted);
 }
 .tl-btn svg {
   width: 16px;
@@ -111,19 +112,28 @@
   transform-style: preserve-3d;
   user-select: none;
 }
+.tl-card {
+  --glass-bg: rgba(255, 255, 255, 0.78);
+}
 .tl-card.is-active {
   transform: rotateY(0deg) scale(1);
-  border-color: rgba(220, 196, 143, 0.55);
+  border-color: var(--bv-gold);
   box-shadow:
-    0 40px 100px -40px rgba(188, 153, 93, 0.45),
+    0 40px 90px -40px rgba(103, 0, 13, 0.28),
     inset 0 1px 0 var(--glass-highlight);
 }
+/* Text-only years sit on BV red */
 .tl-card--text {
   width: 360px;
   justify-content: center;
   background:
-    radial-gradient(100% 80% at 0% 0%, rgba(103, 0, 13, 0.55), transparent 70%),
-    var(--glass-bg);
+    radial-gradient(100% 80% at 100% 100%, rgba(188, 153, 93, 0.35), transparent 70%),
+    var(--bv-red);
+  color: var(--bv-paper);
+  border-color: rgba(188, 153, 93, 0.5);
+}
+.tl-card--text::before {
+  display: none;
 }
 
 .tl-card__media {
@@ -190,7 +200,7 @@
   font-size: 22px;
   line-height: 1;
   font-variant-numeric: lining-nums;
-  color: var(--bv-gold);
+  color: var(--bv-red);
 }
 .tl-card--text .tl-card__year {
   font-style: normal;
@@ -211,7 +221,13 @@
   margin: 4px 0 0;
   font-size: 17.5px;
   line-height: 1.55;
-  color: rgba(248, 249, 245, 0.78);
+  color: var(--ink-soft);
+}
+.tl-card--text .tl-card__body p {
+  color: rgba(248, 249, 245, 0.88);
+}
+.tl-card--text .tl-card__more {
+  color: var(--bv-gold-light);
 }
 
 .timeline__end {
@@ -232,7 +248,7 @@
 }
 .timeline__rail-line {
   height: 1px;
-  background: rgba(248, 249, 245, 0.14);
+  background: rgba(20, 19, 19, 0.14);
   position: relative;
 }
 .timeline__rail-fill {
@@ -253,13 +269,13 @@
   font-size: 17px;
   font-variant-numeric: lining-nums;
   letter-spacing: 0.02em;
-  color: rgba(248, 249, 245, 0.45);
+  color: rgba(20, 19, 19, 0.45);
   padding: 6px 0;
   transition: color 0.3s;
 }
 .timeline__year.is-active,
 .timeline__year:hover {
-  color: var(--bv-gold-light);
+  color: var(--bv-red);
 }
 
 /* ---------- Story view ---------- */
@@ -271,8 +287,8 @@
   place-items: center;
   padding: clamp(12px, 3vw, 40px);
   background:
-    radial-gradient(80% 60% at 50% 100%, rgba(103, 0, 13, 0.45), transparent 70%),
-    rgba(6, 7, 9, 0.88);
+    radial-gradient(80% 60% at 50% 100%, rgba(188, 153, 93, 0.25), transparent 70%),
+    rgba(248, 249, 245, 0.9);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
@@ -283,7 +299,7 @@
   display: flex;
   flex-direction: column;
   border-radius: 26px;
-  --glass-bg: rgba(14, 12, 12, 0.72);
+  --glass-bg: rgba(255, 254, 249, 0.92);
 }
 .tl-story__close {
   position: absolute;
@@ -292,14 +308,14 @@
   z-index: 3;
   padding: 8px 16px 10px;
   border-radius: 999px;
-  background: rgba(6, 7, 9, 0.55);
+  background: rgba(255, 255, 255, 0.7);
   border: 1px solid var(--glass-border);
   font-family: var(--font-caps);
   text-transform: uppercase;
   font-variation-settings: 'wdth' 120;
   font-size: 11px;
   letter-spacing: 0.24em;
-  color: var(--bv-gold-light);
+  color: var(--bv-red);
 }
 .tl-story__close:focus-visible {
   border-radius: 999px;
@@ -327,7 +343,9 @@
 .tl-story__content--text .tl-story__media {
   display: grid;
   place-items: center;
-  background: radial-gradient(90% 80% at 30% 20%, rgba(103, 0, 13, 0.6), transparent 70%);
+  background:
+    radial-gradient(90% 80% at 100% 100%, rgba(188, 153, 93, 0.35), transparent 70%),
+    var(--bv-red);
 }
 .tl-story__bigyear {
   font-family: var(--font-display);
@@ -364,13 +382,13 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: rgba(248, 249, 245, 0.2);
+  background: rgba(20, 19, 19, 0.18);
   transition:
     background 0.3s,
     transform 0.3s;
 }
 .tl-story__dots span.is-active {
-  background: var(--bv-gold);
+  background: var(--bv-red);
   transform: scale(1.4);
 }
 

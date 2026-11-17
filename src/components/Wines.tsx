@@ -63,8 +63,8 @@ export function Wines() {
         </Reveal>
         <Reveal delay={0.1}>
           <p className="lede">
-            Select a bottle. BV has had only six head winemakers in 125 years, and every one has worked from the same
-            gravelly benchland and the same conviction.
+            BV has had only six head winemakers in 125 years, and every one has worked from the same gravelly benchland
+            and the same conviction. Select a bottle to learn more.
           </p>
         </Reveal>
       </div>

@@ -1,7 +1,7 @@
 .upcoming {
   background:
-    radial-gradient(70% 50% at 100% 0%, rgba(103, 0, 13, 0.4), transparent 70%),
-    var(--bv-night);
+    radial-gradient(70% 50% at 100% 0%, rgba(188, 153, 93, 0.2), transparent 70%),
+    var(--bv-paper);
 }
 .upcoming__head {
   display: grid;
@@ -10,7 +10,7 @@
 }
 .upcoming__head em {
   font-style: italic;
-  color: var(--bv-gold-light);
+  color: var(--bv-red);
 }
 
 .upcoming__grid {
@@ -22,7 +22,7 @@
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   min-height: 300px;
-  --glass-bg: rgba(20, 19, 19, 0.45);
+  --glass-bg: rgba(255, 255, 255, 0.75);
 }
 .upcoming__media {
   overflow: hidden;
@@ -50,7 +50,7 @@
 .upcoming__body p {
   margin: 0;
   font-size: 16px;
-  color: rgba(248, 249, 245, 0.76);
+  color: var(--ink-soft);
 }
 .upcoming__body .btn {
   justify-self: start;

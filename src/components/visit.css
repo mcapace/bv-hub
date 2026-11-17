@@ -13,15 +13,15 @@
   height: 100%;
   object-fit: cover;
   object-position: 50% 70%;
-  filter: saturate(0.7) brightness(0.55);
+  filter: saturate(0.9);
 }
 .visit__bg::after {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, var(--bv-night) 0%, rgba(6, 7, 9, 0.5) 30%, rgba(6, 7, 9, 0.75) 100%),
-    radial-gradient(60% 50% at 100% 100%, rgba(103, 0, 13, 0.45), transparent 70%);
+    linear-gradient(180deg, var(--bv-paper) 0%, rgba(248, 249, 245, 0.86) 30%, rgba(248, 249, 245, 0.9) 100%),
+    radial-gradient(60% 50% at 100% 100%, rgba(188, 153, 93, 0.25), transparent 70%);
 }
 
 .visit__inner {
@@ -44,14 +44,14 @@
 }
 .visit__intro em {
   font-style: italic;
-  color: var(--bv-gold-light);
+  color: var(--bv-red);
 }
 
 .visit__facts {
   padding: 28px 30px;
   display: grid;
   gap: 24px;
-  --glass-bg: rgba(6, 7, 9, 0.45);
+  --glass-bg: rgba(255, 255, 255, 0.7);
 }
 .visit__facts dl {
   margin: 0;
@@ -80,8 +80,8 @@
   gap: 14px;
   padding: 20px 22px;
   border-radius: 18px;
-  border: 1px solid rgba(188, 153, 93, 0.2);
-  background: rgba(6, 7, 9, 0.45);
+  border: 1px solid rgba(188, 153, 93, 0.35);
+  background: rgba(255, 255, 255, 0.7);
 }
 .visit__filter {
   display: grid;
@@ -95,7 +95,7 @@
   font-variation-settings: 'wdth' 120;
   font-size: 11px;
   letter-spacing: 0.24em;
-  color: var(--bv-stone);
+  color: var(--ink-muted);
 }
 .visit__chips {
   display: flex;
@@ -105,23 +105,23 @@
 .visit__chip {
   padding: 7px 15px 9px;
   border-radius: 999px;
-  border: 1px solid rgba(248, 249, 245, 0.18);
+  border: 1px solid rgba(20, 19, 19, 0.18);
   font-size: 16px;
   line-height: 1;
-  color: rgba(248, 249, 245, 0.8);
+  color: rgba(20, 19, 19, 0.8);
   transition:
     background 0.3s,
     border-color 0.3s,
     color 0.3s;
 }
 .visit__chip:hover {
-  border-color: var(--bv-gold);
-  color: var(--bv-gold-light);
+  border-color: var(--bv-red);
+  color: var(--bv-red);
 }
 .visit__chip.is-active {
-  background: var(--bv-gold);
-  border-color: var(--bv-gold);
-  color: var(--bv-night);
+  background: var(--bv-red);
+  border-color: var(--bv-red);
+  color: var(--bv-paper);
 }
 .visit__chip:focus-visible {
   border-radius: 999px;
@@ -130,7 +130,7 @@
   margin: 0;
   font-style: italic;
   font-size: 16px;
-  color: var(--bv-stone);
+  color: var(--ink-muted);
 }
 
 .visit__list {
@@ -151,8 +151,8 @@
   font-variation-settings: 'wdth' 120;
   font-size: 11px;
   letter-spacing: 0.24em;
-  color: var(--bv-gold-light);
-  border-bottom: 1px solid rgba(188, 153, 93, 0.4);
+  color: var(--bv-red);
+  border-bottom: 1px solid rgba(188, 153, 93, 0.6);
   padding-bottom: 2px;
   transition:
     color 0.3s,
@@ -161,8 +161,8 @@
 }
 .visit__exp-cta:hover {
   gap: 12px;
-  color: var(--bv-paper);
-  border-color: var(--bv-gold);
+  color: var(--bv-ink);
+  border-color: var(--bv-red);
 }
 .visit__exp-cta svg {
   width: 13px;
@@ -173,7 +173,7 @@
   display: grid;
   gap: 16px;
   justify-items: start;
-  --glass-bg: rgba(6, 7, 9, 0.4);
+  --glass-bg: rgba(255, 255, 255, 0.7);
 }
 .visit__empty p {
   margin: 0;
@@ -183,14 +183,14 @@
   padding: 26px 28px;
   display: grid;
   gap: 10px;
-  --glass-bg: rgba(6, 7, 9, 0.4);
+  --glass-bg: rgba(255, 255, 255, 0.72);
   transition:
     border-color 0.4s,
     background 0.4s;
 }
 .visit__exp:hover {
-  --glass-bg: rgba(20, 16, 14, 0.55);
-  border-color: rgba(220, 196, 143, 0.5);
+  --glass-bg: rgba(255, 255, 255, 0.92);
+  border-color: var(--bv-gold);
 }
 .visit__exp-head {
   display: flex;
@@ -216,7 +216,7 @@
   font-variant-numeric: lining-nums;
   font-size: 11px;
   letter-spacing: 0.2em;
-  color: var(--bv-gold-light);
+  color: var(--bv-red);
 }
 .visit__exp-dot {
   width: 3px;
@@ -227,7 +227,7 @@
 .visit__exp p {
   margin: 0;
   font-size: 17.5px;
-  color: rgba(248, 249, 245, 0.76);
+  color: var(--ink-soft);
 }
 
 @media (max-width: 960px) {
