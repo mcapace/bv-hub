@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { timeline } from '../content'
 import { Reveal } from './Reveal'
 import { TimelineStory } from './TimelineStory'
+import { trackEvent } from '../lib/analytics'
 import { ease } from '../lib/motion'
 import './timeline.css'
 
@@ -98,6 +99,7 @@ export function Timeline() {
       return
     }
     setStory(i)
+    trackEvent('timeline_open', { year: timeline[i]?.year ?? String(i) })
   }
 
   const closeStory = useCallback(() => {

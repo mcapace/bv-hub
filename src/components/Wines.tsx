@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { wines, links } from '../content'
 import { canUse3D } from '../lib/device'
 import { ease } from '../lib/motion'
+import { trackEvent } from '../lib/analytics'
 const BottleScene = lazy(() => import('./BottleScene').then((m) => ({ default: m.BottleScene })))
 import { BottleRow } from './BottleRow'
 import { Reveal } from './Reveal'
@@ -26,6 +27,7 @@ export function Wines() {
   const select = (i: number, focus = false) => {
     const next = (i + wines.length) % wines.length
     setSelected(wines[next].id)
+    trackEvent('wine_selected', { wine: wines[next].short, via: 'arrow' })
     if (focus) tabs.current[next]?.focus()
   }
 
@@ -72,7 +74,14 @@ export function Wines() {
       <div className="wines__stage" onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => (swipe.current = null)}>
         {canUse3D ? (
           <Suspense fallback={<BottleRow wines={wines} selected={selected} onSelect={setSelected} />}>
-            <BottleScene wines={wines} selected={selected} onSelect={setSelected} />
+            <BottleScene
+              wines={wines}
+              selected={selected}
+              onSelect={(id) => {
+                setSelected(id)
+                trackEvent('wine_selected', { wine: wines.find((w) => w.id === id)?.short ?? id, via: 'bottle' })
+              }}
+            />
           </Suspense>
         ) : (
           <BottleRow wines={wines} selected={selected} onSelect={setSelected} />
@@ -104,7 +113,10 @@ export function Wines() {
               aria-controls="wine-panel"
               tabIndex={w.id === selected ? 0 : -1}
               className={`wines__tab ${w.id === selected ? 'is-active' : ''}`}
-              onClick={() => setSelected(w.id)}
+              onClick={() => {
+                setSelected(w.id)
+                trackEvent('wine_selected', { wine: w.short, via: 'tab' })
+              }}
             >
               {w.short}
             </button>

@@ -1,4 +1,6 @@
+import { useEffect } from 'react'
 import { useLenis } from './hooks/useLenis'
+import { initClickTracking, initScrollDepth } from './lib/analytics'
 import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
 import { Chapters } from './components/Chapters'
@@ -13,6 +15,10 @@ import { Footer } from './components/Footer'
 
 export default function App() {
   useLenis()
+  useEffect(() => {
+    initClickTracking()
+    initScrollDepth()
+  }, [])
   return (
     <>
       <Nav />
