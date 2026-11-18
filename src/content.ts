@@ -3,16 +3,15 @@
  * Sources: BV 2026 Press Kit, BV Brand Guidelines 2025, Katelyn Garzon’s
  * "BV WS Brand Hub Brief", and the signed Wine Spectator IO (Nov 2026 - Jun 2027).
  *
- * TODO (confirm with Katelyn Garzon before launch): the exact destination URLs for
- * Visit, Shop, Wine Club and the Renovation page on bvwines.com.
+ * Destination URLs confirmed by Katelyn Garzon on Nov 18, 2026.
  */
 
 export const links = {
   site: 'https://www.bvwines.com/',
   about: 'https://www.bvwines.com/pages/about',
   visit: 'https://www.bvwines.com/pages/visit',
-  shop: 'https://www.bvwines.com/collections/all',
-  club: 'https://www.bvwines.com/pages/wine-club',
+  shop: 'https://www.bvwines.com/collections/all-wines',
+  club: 'https://www.bvwines.com/pages/join-the-club',
   renovation: 'https://www.bvwines.com/pages/renovation',
   documentary: 'https://www.stemandbarrel.com/',
   instagram: 'https://www.instagram.com/bvwines',
@@ -103,7 +102,7 @@ export const timeline: TimelineEntry[] = [
   {
     year: '1920s',
     title: 'Open through Prohibition',
-    text: 'Sacramental wine for the Catholic Church keeps BV producing through thirteen dry years. In 1923 the de Latours buy the neighboring 1885 stone winery, still its home today.',
+    text: 'Sacramental wine for the Catholic Church keeps BV producing through thirteen dry years. In 1923 the de Latours buy the neighboring 1885 stone winery, still BV’s home today.',
     image: '/img/winery-exterior-archive.jpg',
   },
   {
